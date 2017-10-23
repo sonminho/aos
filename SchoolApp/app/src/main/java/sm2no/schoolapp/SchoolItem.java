@@ -1,29 +1,37 @@
 package sm2no.schoolapp;
 
+import android.graphics.drawable.Drawable;
+
 /**
  * Created by 01020072846 on 2017-10-17.
  */
 
 public class SchoolItem {
-    private int icon;
-    private String schoolName;
-    private String schoolDes;
+    private Drawable icon;
+    private String name;
+    private String contents;
 
-    public SchoolItem(int icon, String schoolName, String schoolDes) {
+    public Drawable getIcon() {
+        return icon;
+    }
+
+    public void setIcon(Drawable icon) {
         this.icon = icon;
-        this.schoolName = schoolName;
-        this.schoolDes = schoolDes;
     }
 
-    public int getIcon() {
-        return this.icon;
+    public String getName() {
+        return name;
     }
 
-    public String getSchoolName() {
-        return this.schoolName;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getSchoolDes() {
-        return this.schoolDes;
+    public String getContents() {
+        return contents;
+    }
+
+    public void setContents(String contents) {
+        this.contents = contents;
     }
 }

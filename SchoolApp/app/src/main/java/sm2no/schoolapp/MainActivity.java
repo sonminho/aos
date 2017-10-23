@@ -1,5 +1,7 @@
 package sm2no.schoolapp;
 
+import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -9,7 +11,10 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import org.w3c.dom.Text;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -19,6 +24,8 @@ public class MainActivity extends AppCompatActivity {
     NameSearchFragment nameSearchFragment;
     LocalSearchFragment localSearchFragment;
     MapSearchFragment mapSearchFragment;
+
+    Intent intent = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,6 +85,8 @@ public class MainActivity extends AppCompatActivity {
             public void onTabReselected(TabLayout.Tab tab) {
             }
         });
+
+
     }
 
     @Override
@@ -89,9 +98,17 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        Intent intent  = null;
         int id = item.getItemId();
 
+        if(id == R.id.menu_mypage) {
+            intent = new Intent(this, MypageActivity.class);
+            startActivity(intent);
+        }
 
+        if(id == R.id.menu_logout) {
+            Toast.makeText(this, "로그아웃 되었습니다.", Toast.LENGTH_SHORT).show();
+        }
         return true;
     }
 }

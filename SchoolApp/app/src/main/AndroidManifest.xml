@@ -16,6 +16,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".MypageActivity" />
+        <activity
+            android:name=".SchoolInfoActivity"
+            android:label="@string/title_activity_school_info"
+            android:theme="@style/AppTheme"></activity>
     </application>
 
 </manifest>
