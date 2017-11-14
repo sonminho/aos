@@ -27,5 +27,7 @@ dependencies {
     compile 'com.android.support:appcompat-v7:25.3.1'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     compile 'com.android.support:design:26.0.0-alpha1'
+    compile 'com.squareup.okhttp3:okhttp:3.9.0' //OkHttp 사용을 위해 추가한것[출처] [안드로이드 스튜디오] Okhttp+gson을 이용한 오픈API 사용하기 : 국내극장 박스오피스 구현(1)|작성자 코스모스
+    compile 'com.google.code.gson:gson:2.8.1'
     testCompile 'junit:junit:4.12'
 }
