@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+<meta name="viewport" content="width=device=width, initial-scale=1.0">
+<script type="text/javascript" src="common/js/html5shiv.js"></script>
+</head>
+<body>
+	<dl class="skip">
+		<dt>skip navigation</dt>
+		<dd>
+			<a href="#content">sckip to content</a>
+		</dd>
+	</dl>
+	<hr>
+	<div id="wrap">
+		<header id="header">
+			<h1 class="logo">
+				<a href="#">LOGO</a>
+			</h1>
+			<dl class="topnav">
+				<dt>top navigation</dt>
+				<dd>
+					<a href="#">Login</a>
+				<dd>
+					<a href="#">Member join</a>
+				<dd>
+					<a href="#">Sitemap</a>
+			</dl>
+			<h2>main navigation</h2>
+			<ul class="mainnav">
+				<li><a href="#">About</a></li>
+				<li><a href="#">Services</a></li>
+				<li><a href="#">Portfolio</a></li>
+				<li><a href="#">Contact us</a></li>
+			</ul>
+		</header>
+		<!-- header -->
+		<hr>
+		<div id="container">
+			<div class="snb">
+				<h2>About</h2>
+				<ul>
+					<li><a href="#">Company Info</a>
+					<li><a href="#">History</a>
+					<li><a href="#">Location</a>
+				</ul>
+			</div>
+			<!-- sub -->
+			<hr>
+			<section id="content">
+				<p class="locate">
+					<a href="#">Home</a> <a href="#">About</a> <strong>Company
+						Info</strong>
+				</p>
+				<h2>Company Info</h2>
+				<p class="thum">
+					<img src="img/treethum.png" alt="tree phto">
+				</p>
+				<p>-소**, 32세 일반적인 기업의 경우, 연봉 책정은 인사고과 평가와 연결돼 있기 때문에 당해 연도 임금
+					인상률을 내부적으로 공지한다. 상승 폭은 직종별, 업종별로 천차만별이지만 평균적으로 기존 연봉 대비 10% 내외라 볼 수
+					있다. 물론 이마저도 예외적인 경우가 대부분. 전문직을 제외한 일반 회사원이라면 3~5%, 실적이 좋을 경우 7~8%
+					상승이 일반적이라고 중소기업 인사 담당자 K는 말한다. 한편, 전 대기업 인사 담당자 L의 조언에 따르면 국가지표체계
+					웹사이트를 통해 고용노동부에서 공개하는 최근 5년간 임금 인상률 자료를 참고해보는 것도 좋다. 자발적으로 퇴직한 경우,
+					기본적으로는 실업 급여의 대상이 될 수 없다. 연봉 협상 결렬로 회사 측에서 퇴사를 종용하는 경우에 한해서만 비자발적인
+					퇴사로 인정받을 수 있다는 것. 하지만 협상이 결렬돼 자발적으로 퇴사했다고 해도 채용 시 제시한 임금과 근로 시간이 실제
+					근무 당시 임금 및 근로 시간과 20% 이상 차이가 날 경우, 혹은 기타 근로 조건이 현저하게 낮아져 퇴직한 경우,
+					회사에서 당초 제시한 근로 조건을 2개월 이상 지키지 않은 경우 등에는 정당한 사유가 있는 자발적 퇴사로 인정받아 실업
+					급여 대상의 자격이 충족된다는 것이다. 이와 더불어 스스로 퇴직을 결정하기 전이라면 고용지원센터를 찾아 노동부
+					고용보험심사관과 상의하는 것이 피해를 줄이는 방법이라고 인사 담당자 L은 강조한다</p>
+			</section>
+			<!-- section -->
+		</div>
+		<!-- container -->
+		<hr>
+		<footer id="footer">
+			<nav class="btmnav">
+				<dt>bottom navigation></dt>
+				<dd>
+					<a href="#">About</a>
+				</dd>
+				<dd>
+					<a href="#">Services</a>
+				</dd>
+				<dd>
+					<a href="#">Portfolio</a>
+				</dd>
+				<dd>
+					<a href="#">Contact us</a>
+				</dd>
+				<dd>
+					<a href="#">Location</a>
+				</dd>
+			</dl>
+			<p class="copy">
+				Copright&copy:Company Designer<br> Powered by Webzit,
+				email:webmaster@company.com
+			</p>
+		</nav>
+		<!-- footer -->
+		</footer>
+	</div>
+	<!-- wrap -->
+</body>
+</html>

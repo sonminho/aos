@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Company Info</title>
+<style>
+	a:hover{
+		color:brown;
+		text-decoration:underline;
+		background-color:red
+	}
+</style>
+</head>
+<body>
+	<ul>
+		<li><a href="#">링크</a>
+	</ul>
+</body>
+</html>

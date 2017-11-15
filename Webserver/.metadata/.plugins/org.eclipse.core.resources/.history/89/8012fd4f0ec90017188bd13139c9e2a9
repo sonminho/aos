@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Eat it 맛과 즐거움</title>
+</head>
+<style>
+	.main_div{
+		clear:both;
+	}
+	
+	#main_nav {
+		width:400px;
+		float:right;
+	}
+	
+	.main_search {
+		margin-top:50px;
+		margin:0px auto;
+	}
+
+	.search_img {
+		width:100px;
+	}
+		
+	.main_category{
+		width:600px;
+		margin-top:20px;
+		text-align:center;
+	}
+	hr {
+		clear:both;
+	}
+	
+	a:link{
+		color:black;
+		text-decoration:none;
+	}
+	
+	a:hover{
+		color:beige;
+		background-color:gray;
+		text-decoration:line-through;
+	}
+	
+	.main_search input{
+		vertical-align:10px;
+	}
+	
+</style>
+<body>
+
+<table id="main_nav">
+	<tr>
+		<td>로그온</td>
+		<td>회원가입</td>
+		<td>마이페이지</td>
+		<td>즐겨찾기</td>
+		<td>관리자</td>
+	</tr>
+</table>
+<hr/>
+<div class="main_div">
+<form class="main_search">
+	<img class="search_img" src="img/eat_it.jpg">
+	<input type="text" size="50">
+	<input type="submit" value="검색">
+</form>
+<br>
+<table class="main_category">
+	<tr>
+		<td><a href="#">공지사항</a></td>
+		<td><a href="#">지도 검색</a></td>
+		<td><a href="#">테마 검색</a></td>
+		<td><a href="#">종류 검색</a></td>
+		<td><a href="#">추천 맛집</a></td>
+	</tr>
+</table>
+<br><br>
+<br>
+<img src="img/img2.jpg" width="800" height="400"/>
+<br><br><br>
+<fieldset>
+<legend>공지사항</legend>
+<ul>
+	<li>공지사항1</li>
+	<li>공지사항2</li>
+</ul><br><br>
+</fieldset><br>
+<hr>
+@Copyright Son, Oh, Lee <br>
+Advanced Web Programming Team7
+</div>
+</body>
+</html>

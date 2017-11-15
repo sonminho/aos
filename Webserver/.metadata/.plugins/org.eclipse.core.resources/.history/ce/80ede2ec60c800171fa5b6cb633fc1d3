@@ -1,0 +1,17 @@
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
+<!DOCTYPE>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<title>Insert title here</title>
+</head>
+<body>
+<table border="1">
+	<caption>
+		<strong>테이블의 제목</strong>
+		<p>이 테이블의 설명을 간단히 작성할 수도 있습니다.</p>
+	</caption>
+</table>
+</body>
+</html>

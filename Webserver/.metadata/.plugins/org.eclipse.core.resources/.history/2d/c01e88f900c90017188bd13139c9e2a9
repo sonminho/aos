@@ -1,0 +1,35 @@
+package javaproj;
+
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
+
+public class HanimTest {
+	
+	public static void main(String[] args) {
+		try {
+			URL url = new URL("http://211.253.26.113:8080/master_info/getwith/seq.do?schMasterInfo=[{sch_seq:456}]");
+			
+			HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+			conn.setRequestMethod("GET");
+			conn.setConnectTimeout(5000);
+			
+			conn.connect();
+			
+			InputStream inputStream = conn.getInputStream();
+			
+			BufferedReader bufferedReader = new BufferedReader
+					(new InputStreamReader(connection.getInputStream()));
+			String out = "";
+			
+			while(bufferedReader.readLine() != null) {
+				out += bufferedReader.readLine().toString() +"\n";	
+			}
+			System.out.println(out);
+			} catch(Exception e) {
+				e.printStackTrace();
+			}
+	}
+}

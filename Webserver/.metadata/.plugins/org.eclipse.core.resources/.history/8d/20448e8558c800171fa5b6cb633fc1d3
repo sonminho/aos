@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+</head>
+<body>
+<nav>
+	<h1>main navigation</h1>
+	<ul>
+		<li>About</li>
+		<li>Services</li>
+		<li>Portfolio</li>
+		<li>Contact Us</li>
+	</ul>
+</nav>
+
+<article>
+	<header>
+		<h1>손민호</h1>
+		
+	</header>
+	
+	<aside>
+		<h1>aside</h1>
+	</aside>
+</article>
+</body>
+</html>

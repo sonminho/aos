@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+<meta name="viewport" content="width=device=width, initial-scale=1.0">
+<script type="text/javascript" src="common/js/html5shiv.js"></script>
+</head>
+<body>
+<dl class="skip">
+	<dt>skip navigation</dt>
+	<dd><a href="#content">sckip to content</a></dd>
+</dl>
+<hr>
+<div id="wrap">
+	<div id="header">
+		<h1 class="logo"><a href="#">LOGO</a></h1>
+		<dl class="topnav">
+			<dt>top navigation</dt>
+			<dd><a href="#">Login</a>
+			<dd><a href="#">Member join</a>
+			<dd><a href="#">Sitemap</a>
+		</dl>
+		<h2>main navigation</h2>
+		<ul class="mainnav">
+			<li><a href="#">About</a></li>
+			<li><a href="#">Services</a></li>
+			<li><a href="#">Portfolio</a></li>
+			<li><a href="#">Contact us</a></li>
+		</ul>
+	</div> <!-- header -->
+	<hr>
+	<div id="container">
+		<div class="snb">
+		
+		</div> <!-- sub -->
+		<hr>
+		<div id="content">
+		
+		</div> <!-- content -->
+	</div> <!-- content -->
+	<hr>
+	<div id="footer">
+	
+	</div>
+</div> <!-- wrap -->
+</body>
+</html>

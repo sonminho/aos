@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Company Info</title>
+</head>
+<body>
+<div id="wrap">
+	<div id="header">
+		<h1>LOGO</h1>
+		<h2>MAIN MENU</h2>
+	</div>
+	
+	<hr>
+	<div id="container">
+		<div class="visual">
+		</div>
+		<hr>
+		<div class="nav">
+			<h2>ABOUT</h2>
+		</div>
+	</div>
+	
+</div>
+</body>
+</html>

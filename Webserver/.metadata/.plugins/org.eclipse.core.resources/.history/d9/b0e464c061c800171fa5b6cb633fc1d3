@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Company Info</title>
+</head>
+<body>
+<div id="wrap">
+	<div id="header">
+		<h1>LOGO</h1>
+		<h2>MAIN MENU</h2>
+	</div>
+	<hr>
+	<div id="container">
+		<div class="visual">
+		</div>
+		<hr>
+		<div class="nav">
+			<h2>ABOUT</h2>
+		</div>
+		<hr>
+		<div class="contents">
+			<h3>Company info</h3>
+			<hr>
+			<h3>Portfolio list</h3>
+		</div>
+	</div>
+	<hr>
+	<div id="footer">
+	</div>
+</div>
+<table border="1">
+	<caption>
+		<strong>테이블제목</strong>
+		<p>이 테이블의 설명을 간한히 작성할 수도 있습니다</p>
+	</caption>
+	<thead>
+		<tr>
+			<th scope="col">title1</th>
+			<th scope="col">title2</th>
+			<th scope="col">title3</th>
+		</tr>
+	</thead>
+	<tfoot>
+		<tr>
+			<th scope="row">result title</th>
+			<td>result2</td>
+			<td>result3</td>
+		</tr>
+	</tfoot>
+</table>
+</body>
+</html>

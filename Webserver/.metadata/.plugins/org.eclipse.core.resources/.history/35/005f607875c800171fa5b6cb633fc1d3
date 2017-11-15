@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Company Info</title>
+<style>
+.block{
+	display:inline;
+	width:300px;
+	background-color:lime;
+}
+</style>
+</head>
+<body>
+	<div class="area">
+		<p id="text" style="color:blue; font-family:'궁서'">
+			Lerem ipsumdorl~~
+		</p>
+	</div>
+</body>
+</html>

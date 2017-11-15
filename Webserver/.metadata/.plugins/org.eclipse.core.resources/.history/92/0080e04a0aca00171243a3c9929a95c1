@@ -1,0 +1,5 @@
+package controller.action.copy;
+
+public class Action {
+
+}

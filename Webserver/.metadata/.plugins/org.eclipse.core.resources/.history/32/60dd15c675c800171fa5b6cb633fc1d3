@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Company Info</title>
+<style>
+.block{
+	display:inline;
+	width:300px;
+	background-color:lime;
+}
+.inline{
+	diplay:block;
+	width:300px;
+}
+</style>
+</head>
+<body>
+<div class="block">div : block elements</div>
+<span class="inline">span : inline elements</span>
+</body>
+</html>

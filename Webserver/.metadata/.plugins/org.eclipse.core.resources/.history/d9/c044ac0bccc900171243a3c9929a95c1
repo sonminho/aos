@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+<meta name="viewport" content="width=device=width, initial-scale=1.0">
+<script type="text/javascript" src="common/js/html5shiv.js"></script>
+<link rel="stylesheet" type="text/css" href="common/css/main.css">
+</head>
+<body>
+	<dl class="skip">
+		<dd>
+			<a href="#content">skip to content</a>
+		</dd>
+	</dl>
+	<hr>
+	<div id="wrap">
+		<header id="header">
+			<h1 class="logo">
+				<a href="#">LOGO</a>
+			</h1>
+			<dl class="topnav">
+				<dd>
+					<a href="#">Login</a>
+				</dd>
+				<dd>
+					<a href="#">Member join</a>
+				</dd>
+				<dd class="last">
+					<a href="#">sit emap</a>
+				</dd>
+			</dl>
+			<ul class="mainnav">
+				<li><a href="#">About</a></li>
+				<li><a href="#">Services</a></li>
+				<li><a href="#">Portfolio</a></li>
+				<li><a href="#">Contact us</a></li>
+			</ul>
+		</header>
+		<!-- header -->
+		<hr>
+
+		<div id="container">
+			<div class="snb">
+				<h2>About</h2>
+				<ul>
+					<li><a href="#">Company Info</a></li>
+					<li><a href="#">History</a></li>
+					<li><a href="#">Location</a></li>
+				</ul>
+			</div>
+			<!-- sub -->
+			<hr>
+			<section id="content">
+				<p class="locate">
+					<a href="#">Home</a> &gt; 
+					<a href="#">About</a> &gt; 
+					<strong>Company Info</strong>
+				</p>
+				<h2>Company Info</h2>
+				<p class="thum">
+					<img src="img/treethum.png" alt="tree phto">
+				</p>
+				<div class="text">
+					<p>-소**, 32세 일반적인 기업의 경우,다</p>
+
+					<p>-소**, 32세 일반적인 기업의 경우,</p>
+				</div>
+			</section>
+			<!-- section -->
+		</div>
+		<!-- container -->
+		
+		<hr>
+		<footer id="footer">
+			<nav>
+				<h1>bottom navigation</h1>
+				<ul class="btmnav">
+					<li><a href="#">About</a></li>
+					<li><a href="#">Services</a></li>
+					<li><a href="#">Portfolio</a></li>
+					<li><a href="#">Contact us</a></li>
+					<li><a href="#">Location</a></li>
+				</ul>
+			</nav>
+			<p class="copy">
+				Copright&copy:Company Designer<br> Powered by Webzit,
+				email:webmaster@company.com
+			</p>
+			<!-- footer -->
+		</footer>
+	</div>
+	<!-- wrap -->
+</body>
+</html>

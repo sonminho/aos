@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+</head>
+<body>
+<div id="wrap">
+	<div id="header">
+		<h1>LOGO</h1>
+		<p>This Web Site is ....</p>
+	</div> <!-- header -->
+	
+	<div id="container">
+		<div class="nav">
+			<h2>Navigation</h2>
+			<ul>
+				<li><a href="#">Menu1</a>
+				<li><a href="#">Menu2</a>
+				<li><a href="#">Menu3</a>
+			</ul>
+		</div> <!-- nav -->
+		
+		<div class="content">
+			<h2>Content Title</h2>
+			<p>
+			Pellentesque habit morbit trist ~~~
+			</p>
+		</div>
+	</div> <!-- container -->
+	
+	<div id="footer">
+		<address>Seoul, Korea</address>
+	</div> <!-- footer -->
+</div> <!-- wrap -->
+</body>
+</html>
