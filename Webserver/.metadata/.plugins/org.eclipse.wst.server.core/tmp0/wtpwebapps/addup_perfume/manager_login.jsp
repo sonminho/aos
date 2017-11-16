@@ -145,6 +145,22 @@ body > #wrap{
 }
 
 </style>
+<script type="text/javascript">
+	function loginCheck() {
+		if(document.frm.id.value.length == 0) {
+			alert("아이디를 입력해주세요");
+			frm.id.focus();
+			return false;
+		}
+		if(document.frm.pw.value.length == 0) {
+			alert("비밀번호를 입력해주세요");
+			frm.pw.focus();
+			return false;
+		}
+		
+		return true;
+	}
+</script>
 </head>
 <body>
 <div id="wrap">
@@ -182,10 +198,10 @@ body > #wrap{
 			</dl>
 		</div> <!-- mainnav -->
 		<div id="content">
-			<form action="manager_login.do" method="post">
+			<form name="frm" action="ControllerServlet?command=manager_login" method="post">
 				아이디&nbsp; &nbsp;&nbsp; &nbsp;<input type="text" name="id"><br>
 				비밀번호&nbsp; &nbsp;<input type="password" name="pw"><br>
-				<input type="submit" value="로그인" style="width:240px;">
+				<input type="submit" onclick="return loginCheck();"value="로그인" style="width:240px;">
 			</form>
 		</div>
 	</div> <!-- container -->

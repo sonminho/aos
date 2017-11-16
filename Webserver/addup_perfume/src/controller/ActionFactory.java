@@ -1,7 +1,7 @@
 package controller;
 
-import controller.action.copy.Action;
-import controller.action.copy.ManagerLoginAction;
+import controller.action.Action;
+import controller.action.ManagerLoginAction;
 
 public class ActionFactory {
 	

@@ -9,6 +9,7 @@ doctypeExtrenalSysref=\#DFBE95 | null | false | false | false | false
 doctypeName=\#DFBE95 | null | false | false | false | false
 eclipse.preferences.version=1
 entityReference=\#EFEFAF | null | false | false | false | false
+org.eclipse.wst.xml.ui.internal.tabletree.XMLMultiPageEditorPart.lastActivePage=1
 piBorder=\#DFBE95 | null | false | false | false | false
 piContent=\#F6F3E8 | null | false | false | false | false
 tagAttributeEquals=\#F6F3E8 | null | false | false | false | false

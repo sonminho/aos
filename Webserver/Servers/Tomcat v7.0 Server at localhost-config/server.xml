@@ -126,7 +126,13 @@
              Note: The pattern used is equivalent to using pattern="common" -->
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b" prefix="localhost_access_log." suffix=".txt"/>
 
-      <Context docBase="mywebsite" path="/mywebsite" reloadable="true" source="org.eclipse.jst.jee.server:mywebsite"/><Context docBase="addup_perfume" path="/addup_perfume" reloadable="true" source="org.eclipse.jst.jee.server:addup_perfume"/></Host>
+      <Context docBase="mywebsite" path="/mywebsite" reloadable="true" source="org.eclipse.jst.jee.server:mywebsite"/><Context docBase="addup_perfume" path="/addup_perfume" reloadable="true" source="org.eclipse.jst.jee.server:addup_perfume">
+      <!-- 커넥션풀 설정 -->
+      <Resource auth="Container" driverClassName="oracle.jdbc.OracleDriver"
+						maxIdle="10" maxTotal="20" maxWaitMillis="-1" name="jdbc/myoracle"
+						username="addup" password="1017" type="javax.sql.DataSource" url="jdbc:oracle:thin:@127.0.0.1:1521:XE"/>
+      </Context>
+      </Host>
     </Engine>
   </Service>
 </Server>

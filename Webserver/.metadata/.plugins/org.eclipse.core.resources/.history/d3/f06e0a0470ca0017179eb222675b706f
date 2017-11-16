@@ -1,0 +1,14 @@
+package dao;
+
+public class ManagerDAO {
+	// ½Ì±ÛÅæ µğÀÚÀÎ
+	private static ManagerDAO instance = new ManagerDAO();
+	
+	private ManagerDAO() {
+		
+	}
+	
+	private static ManagerDAO getInstance() {
+		return instance;
+	}
+}

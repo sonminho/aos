@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import controller.action.copy.Action;
+import controller.action.Action;
 
 /**
  * Servlet implementation class ControllerServlet

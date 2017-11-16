@@ -2840,3 +2840,12 @@
 0:0:0:0:0:0:0:1 - - [15/Nov/2017:21:56:29 +0900] "GET /practice/img/main_img2.png HTTP/1.1" 304 -
 0:0:0:0:0:0:0:1 - - [15/Nov/2017:21:56:32 +0900] "GET /practice/login.jsp HTTP/1.1" 404 987
 0:0:0:0:0:0:0:1 - - [15/Nov/2017:21:56:48 +0900] "GET /practice/manager_login.jsp HTTP/1.1" 200 4024
+127.0.0.1 - - [15/Nov/2017:23:01:56 +0900] "GET / HTTP/1.1" 404 951
+0:0:0:0:0:0:0:1 - - [15/Nov/2017:23:02:00 +0900] "GET /addup_perfume/index.jsp HTTP/1.1" 200 3695
+0:0:0:0:0:0:0:1 - - [15/Nov/2017:23:02:00 +0900] "GET /addup_perfume/img/logo.png HTTP/1.1" 200 8144
+0:0:0:0:0:0:0:1 - - [15/Nov/2017:23:02:00 +0900] "GET /addup_perfume/img/main_img.png HTTP/1.1" 200 218308
+0:0:0:0:0:0:0:1 - - [15/Nov/2017:23:02:00 +0900] "GET /addup_perfume/img/main_img2.png HTTP/1.1" 200 1248760
+0:0:0:0:0:0:0:1 - - [15/Nov/2017:23:02:02 +0900] "GET /addup_perfume/index.jsp HTTP/1.1" 200 3695
+0:0:0:0:0:0:0:1 - - [15/Nov/2017:23:12:20 +0900] "GET /addup_perfume/manager_login.jsp HTTP/1.1" 200 4047
+0:0:0:0:0:0:0:1 - - [15/Nov/2017:23:12:24 +0900] "POST /addup_perfume/ControllerServlet?command=manager_login HTTP/1.1" 200 -
+0:0:0:0:0:0:0:1 - - [15/Nov/2017:23:13:58 +0900] "POST /addup_perfume/ControllerServlet?command=manager_login HTTP/1.1" 200 -
