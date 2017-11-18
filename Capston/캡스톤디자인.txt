@@ -1,0 +1,11 @@
+capston / 1017
+
+create table member_info(
+	token varchar2(200),
+	userid varchar2(12) not null,
+	pwd varchar2(12),
+	email varchar2(12),
+	phone varchar2(12),
+	connection number(1) default 0,
+	primary key(userid)
+);
