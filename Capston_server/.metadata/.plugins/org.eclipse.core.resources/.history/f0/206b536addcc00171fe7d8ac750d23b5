@@ -1,0 +1,51 @@
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<title>Insert title here</title>
+<style>
+html, body{
+	width:100%
+	height:100%
+}
+.wrapper{
+	width:700px;
+	hieght:100%;
+	margin:0px auto;
+}
+.wrpper > #login{
+	width:700px;
+}
+</style>
+
+<script type="text/javascript">
+	function loginCheck() {
+		if(document.frm.id.value.length == 0) {
+			alert("아이디를 입력해주세요");
+			frm.id.focus();
+			return false;
+		}
+		if(document.frm.pw.value.length == 0) {
+			alert("비밀번호를 입력해주세요");
+			frm.pw.focus();
+			return false;
+		}
+		
+		return true;
+	}
+</script>
+</head>
+<body>
+<div class="wrapper">
+	<div id="login">
+		<form name="frm" action="AndroidServlet?command=web_login" method="post">
+			아이디&nbsp; &nbsp;&nbsp; &nbsp;<input type="text" name="id"><br>
+			비밀번호&nbsp; &nbsp;<input type="password" name="pw"><br>
+			<input type="submit" onclick="return loginCheck();"value="로그인" style="width:240px;">
+		</form>
+	</div>
+</div>
+</body>
+</html>

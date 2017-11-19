@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="javax.naming.Context"/>
+<fullyQualifiedTypeName name="javax.sql.DataSource"/>
+<fullyQualifiedTypeName name="java.sql.Connection"/>
+<fullyQualifiedTypeName name="java.sql.Statement"/>
+<fullyQualifiedTypeName name="controller.action.Action"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="controller.action.MemberLoginAction"/>
+<fullyQualifiedTypeName name="controller.action.AndroidLoginAction"/>
+<fullyQualifiedTypeName name="controller.action.AndroidConfirmAction"/>
+<fullyQualifiedTypeName name="controller.action.AndroidFcmAction"/>
+<fullyQualifiedTypeName name="controller.action.AndroidIDCheckAction"/>
+<fullyQualifiedTypeName name="java.net.URLDecoder"/>
+<fullyQualifiedTypeName name="java.net.URL"/>
+<fullyQualifiedTypeName name="java.io.InputStream"/>
+<fullyQualifiedTypeName name="java.util.Map"/>
+<fullyQualifiedTypeName name="controller.action.WebLoginAction"/>
+<fullyQualifiedTypeName name="controller.action.WebTransferAction"/>
+<fullyQualifiedTypeName name="dao.MemberDAO"/>
+<fullyQualifiedTypeName name="controller.action.WebLogoutAction"/>
+<fullyQualifiedTypeName name="javax.websocket.Session"/>
+</qualifiedTypeNameHistroy>

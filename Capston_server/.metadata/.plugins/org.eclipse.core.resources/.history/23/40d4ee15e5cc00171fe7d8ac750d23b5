@@ -1,0 +1,28 @@
+package controller.action;
+
+import java.io.IOException;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import dao.MemberDAO;
+import dto.MemberVO;
+
+public class WebLoginAction implements Action{
+
+	@Override
+	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		MemberDAO mDao = MemberDAO.getInstance();
+		MemberVO mVo = new MemberVO();
+		int result = -1;
+		
+		mVo.setUserid(request.getParameter("id"));
+		mVo.setPwd(request.getParameter("pw"));
+		
+		result = mDao.webLoginMember(mVo);
+		
+		System.out.println(result);
+	}
+}

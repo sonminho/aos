@@ -1,0 +1,35 @@
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
+<!DOCTYPE>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<title>Insert title here</title>
+<style>
+.wrapper{
+	width:1000px;
+	margin:0px auto;
+}
+#transfer{
+	width:800px;
+	padding:50px;
+}
+</style>
+</head>
+<body>
+<center>
+<div class="wrapper">
+	<div id="transfer">
+	<h1>FCM 메시지 전송하기</h1> <br>
+	<form name="frm" action="AndroidServlet?command=web_transfer_action" method="post">
+		<textarea rows="20" cols="50">
+		
+		</textarea><br><br>
+		<input type="text" value="입력" style="width:300px"/>
+		<input type="submit" value="전송"/>
+	</form>
+	</div>
+</div>
+</center>
+</body>
+</html>
