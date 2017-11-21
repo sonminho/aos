@@ -1,0 +1,49 @@
+package dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+
+import dto.ResponseDTO;
+import util.DBManager;
+
+public class ResponseDAO {
+	private static ResponseDAO instance = new ResponseDAO();
+	
+	private ResponseDAO() {
+		
+	}
+	
+	public ResponseDAO getInstance() {
+		return instance;
+	}
+	
+	public void insertData(ResponseDTO rDto) {
+		String sql = "insert into response(rUserid, rMsg, rDate)"
+				+ " values(?, ?, ?)";
+		
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		
+		int result = -1;
+		
+		try {
+			conn = DBManager.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, rDto.getrUserid());
+			pstmt.setString(2, rDto.getrMsg());
+			pstmt.setDate(3, new Date());
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if(pstmt != null) pstmt.close();
+				if(conn != null) conn.close();
+			} catch(Exception e) {
+				e.printStackTrace();
+			}
+		}
+		
+		
+	}
+}

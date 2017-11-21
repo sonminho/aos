@@ -9,7 +9,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>Insert title here</title>
+<title>WIMP 전송 페이지</title>
 <style>
 #transfer{
 	width:800px;
@@ -21,14 +21,11 @@
 <center>
 <div class="wrapper">
 	<div id="transfer">
-	<h1>FCM 메시지 전송하기</h1>
+	<h1>WIMP 메시지 전송하기</h1>
 	<h3>
 	안녕하세요 (${loginUser.userid })님
 	</h3>
 	<form name="frm" action="AndroidServlet?command=web_transfer_action" method="post">
-		<textarea rows="20" cols="50">
-		
-		</textarea><br><br>
 		<select name="transfer_select" style="width:300px">
 			<option value="where">스마트폰 위치</option>
 			<option value="battery">배터리 잔여량</option>
@@ -37,7 +34,10 @@
 		</select>
 		<input type="submit" value="전송"/>
 	</form><br>
-	<form name="frm2" action="AndroidServlet?command=web_logout_action" method="post">
+	<form name="frm2" action="AndroidServlet?command=web_response_list" method="post">
+		<input type="submit" value="조회 목록" style="width:360px"/>
+	</form><br>
+	<form name="frm3" action="AndroidServlet?command=web_logout_action" method="post">
 		<input type="submit" value="로그아웃" style="width:360px"/>	
 	</form>
 	</div>

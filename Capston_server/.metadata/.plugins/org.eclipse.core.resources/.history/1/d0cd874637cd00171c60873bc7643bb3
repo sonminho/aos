@@ -1,0 +1,28 @@
+package dto;
+
+import java.sql.Date;
+
+public class ResponseDTO {
+	private Date rDate;
+	private String rUserid;
+	private String rMsg;
+	
+	public Date getrDate() {
+		return rDate;
+	}
+	public void setrDate(Date rDate) {
+		this.rDate = rDate;
+	}
+	public String getrUserid() {
+		return rUserid;
+	}
+	public void setrUserid(String rUserid) {
+		this.rUserid = rUserid;
+	}
+	public String getrMsg() {
+		return rMsg;
+	}
+	public void setrMsg(String rMsg) {
+		this.rMsg = rMsg;
+	}
+}

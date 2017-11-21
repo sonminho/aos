@@ -1,0 +1,9 @@
+package dto;
+
+import java.sql.Date;
+
+public class ResponseDTO {
+	private Date rDate;
+	private String rUserid;
+	private String rMsg;
+}

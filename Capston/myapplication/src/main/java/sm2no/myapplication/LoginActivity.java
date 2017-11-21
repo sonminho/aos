@@ -68,7 +68,7 @@ public class LoginActivity extends AppCompatActivity {
             String result = null;
 
             try {
-                URL url = new URL("http://192.168.0.100:8080/Capston/AndroidServlet?command=android_login");
+                URL url = new URL("http://192.168.0.2:8080/Capston/AndroidServlet?command=android_login");
                 HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 
                 conn.setDefaultUseCaches(false);

@@ -2,10 +2,8 @@
 <qualifiedTypeNameHistroy>
 <fullyQualifiedTypeName name="javax.naming.Context"/>
 <fullyQualifiedTypeName name="javax.sql.DataSource"/>
-<fullyQualifiedTypeName name="java.sql.Connection"/>
 <fullyQualifiedTypeName name="java.sql.Statement"/>
 <fullyQualifiedTypeName name="controller.action.Action"/>
-<fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="controller.action.MemberLoginAction"/>
 <fullyQualifiedTypeName name="controller.action.AndroidLoginAction"/>
 <fullyQualifiedTypeName name="controller.action.AndroidConfirmAction"/>
@@ -20,4 +18,12 @@
 <fullyQualifiedTypeName name="dao.MemberDAO"/>
 <fullyQualifiedTypeName name="controller.action.WebLogoutAction"/>
 <fullyQualifiedTypeName name="javax.websocket.Session"/>
+<fullyQualifiedTypeName name="controller.action.AndroidResponseAction"/>
+<fullyQualifiedTypeName name="java.sql.Connection"/>
+<fullyQualifiedTypeName name="util.DBManager"/>
+<fullyQualifiedTypeName name="java.sql.Date"/>
+<fullyQualifiedTypeName name="java.util.Calendar"/>
+<fullyQualifiedTypeName name="controller.action.WebFcmResultAction"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="dao.ResponseDAO"/>
 </qualifiedTypeNameHistroy>

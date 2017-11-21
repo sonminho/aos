@@ -1,0 +1,19 @@
+package dao;
+
+import dto.ResponseDTO;
+
+public class ResponseDAO {
+	private static ResponseDAO instance = new ResponseDAO();
+	
+	private ResponseDAO() {
+		
+	}
+	
+	public ResponseDAO getInstance() {
+		return instance;
+	}
+	
+	public void insertData(ResponseDTO rDto) {
+		sql
+	}
+}

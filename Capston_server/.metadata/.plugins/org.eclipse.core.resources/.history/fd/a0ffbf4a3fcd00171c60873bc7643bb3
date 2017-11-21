@@ -1,0 +1,50 @@
+package controller.action;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.List;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import dao.ResponseDAO;
+import dto.ResponseDTO;
+
+public class AndroidResponseAction implements Action {
+	
+	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		request.setCharacterEncoding("UTF-8");
+		
+		int result = -1;
+		
+		ResponseDAO rDao = ResponseDAO.getInstance();
+		ResponseDTO rDto = new ResponseDTO();
+		
+		String rMsg = request.getParameter("rMsg");
+		String rUserid = request.getParameter("rUserid");
+		Calendar now = Calendar.getInstance();
+		String rDate = now.getTime().toString();
+		
+		rDto.setrMsg(rMsg);
+		rDto.setrUserid(rUserid);
+		rDto.setrDate(rDate);
+		
+		result = rDao.insertData(rDto);
+		
+		System.out.println(result + "------------¸®½ºÆ®-----------");
+		
+		List<ResponseDTO> rList = new ArrayList<ResponseDTO>();
+		
+		rList = rDao.getDataList("smin2847");
+		
+		for(int i = 0; i < rList.size(); i++) {
+			System.out.println(rList.get(i).getrUserid().toString());
+			System.out.println(rList.get(i).getrDate().toString());
+			System.out.println(rList.get(i).getrMsg().toString());
+			System.out.println();
+		}
+	}
+}
