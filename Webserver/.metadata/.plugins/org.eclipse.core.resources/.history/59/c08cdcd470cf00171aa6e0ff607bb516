@@ -1,0 +1,7 @@
+package dao;
+
+public class CateegoryDAO {
+	private static CateegoryDAO instance = new CateegoryDAO();
+	
+	
+}

@@ -40,7 +40,7 @@ public class ManagerDAO {
 		return conn;
 	}
 	
-	public int managerCheck(String id, String pw) throws SQLException{
+	public int managerCheck(String id, String pw) throws SQLException {
 		int result = -1;
 		String sql = "select pw from manager where id=?";
 		Connection conn = null;

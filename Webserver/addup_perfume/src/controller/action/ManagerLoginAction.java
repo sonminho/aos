@@ -7,6 +7,7 @@ import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import dao.ManagerDAO;
 
@@ -19,6 +20,7 @@ public class ManagerLoginAction implements Action {
 		String id = request.getParameter("id");
 		String pw = request.getParameter("pw");
 		
+		HttpSession session = request.getSession();
 		ManagerDAO mDao = ManagerDAO.getInstance();
 		RequestDispatcher dispatcher = null;
 		
@@ -35,10 +37,14 @@ public class ManagerLoginAction implements Action {
 		System.out.println(pw);
 		System.out.println(result);
 		
-		
 		if(result == 1) {
 			System.out.println("manager login ok..");
-			dispatcher = request.getRequestDispatcher("index.jsp");
+			session.setAttribute("mLogin", result);
+			dispatcher = request.getRequestDispatcher("manager_home.jsp");
+			dispatcher.forward(request, response);
+		} else if(result == 0) {
+			System.out.println("password is not correct..");
+			dispatcher = request.getRequestDispatcher("manager_login.jsp");
 			dispatcher.forward(request, response);
 		}
 	}

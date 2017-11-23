@@ -8,4 +8,9 @@
 <fullyQualifiedTypeName name="javax.activation.DataSource"/>
 <fullyQualifiedTypeName name="javax.sql.DataSource"/>
 <fullyQualifiedTypeName name="javax.naming.InitialContext"/>
+<fullyQualifiedTypeName name="controller.action.MangerRegisterAction"/>
+<fullyQualifiedTypeName name="dao.CategoryDAO"/>
+<fullyQualifiedTypeName name="com.oreilly.servlet.MultipartRequest"/>
+<fullyQualifiedTypeName name="com.oreilly.servlet.multipart.DefaultFileRenamePolicy"/>
+<fullyQualifiedTypeName name="dao.ProductDAO"/>
 </qualifiedTypeNameHistroy>

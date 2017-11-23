@@ -2,6 +2,8 @@ package controller;
 
 import controller.action.Action;
 import controller.action.ManagerLoginAction;
+import controller.action.ManagerUploadAction;
+import controller.action.MangerRegisterAction;
 
 public class ActionFactory {
 	
@@ -20,6 +22,10 @@ public class ActionFactory {
 		
 		if(command.equals("manager_login")) {
 			action = new ManagerLoginAction();
+		} else if(command.equals("manager_register")) {
+			action = new MangerRegisterAction();
+		} else if(command.equals("manager_upload")) {
+			action = new ManagerUploadAction();
 		}
 		
 		return action;

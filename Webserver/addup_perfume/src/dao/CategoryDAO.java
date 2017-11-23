@@ -1,0 +1,84 @@
+package dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.sql.DataSource;
+
+import dto.CategoryVO;
+
+public class CategoryDAO {
+	private static CategoryDAO instance = new CategoryDAO();
+	
+	private CategoryDAO() {
+		
+	}
+	
+	public static CategoryDAO getInstance() {
+		return instance;
+	}
+	
+	// 데이터베이스 커넥션풀 연결
+	public Connection getConnection() {
+		Connection conn = null;
+		Context initContext = null;
+		Context envContext = null;
+		DataSource ds = null;
+		
+		try {
+			initContext = new InitialContext();
+			envContext = (Context) initContext.lookup("java:/comp/env");
+			ds = (DataSource) envContext.lookup("jdbc/myoracle");
+			conn = ds.getConnection();
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		return conn;
+	}
+	
+	public ArrayList<CategoryVO> getAllCategory() throws SQLException {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		ArrayList<CategoryVO> cList = null;
+		
+		try {
+			conn = getConnection();
+			String sql = "select * from category";
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			
+			cList = new ArrayList<CategoryVO>();
+			
+			while(rs.next()) {
+				int categoryNumber = rs.getInt("categorynumber");
+				String categorySex = rs.getString("categorysex");
+				String categoryLevel = rs.getString("categorylevel");
+				
+				CategoryVO cVo = new CategoryVO();
+				
+				cVo.setCategoryNumber(categoryNumber);
+				cVo.setCategorySex(categorySex);
+				cVo.setCategoryLevel(categoryLevel);
+				
+				cList.add(cVo);
+			}
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally { 
+			if(rs != null) rs.close();
+			if(pstmt != null) pstmt.close();
+			if(rs != null) rs.close();
+		}
+		
+		return cList;
+	}
+}
+

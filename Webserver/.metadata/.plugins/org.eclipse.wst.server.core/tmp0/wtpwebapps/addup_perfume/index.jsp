@@ -88,7 +88,6 @@ body > #wrap{
 	color:gray;
 	text-decoration:underline;
 }
-
 #container{
 	position:relative;
 	padding-bottom:440px;
