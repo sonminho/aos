@@ -24,6 +24,5 @@ public class MainActivity extends AppCompatActivity {
         String str = intent.getStringExtra("userid");
 
         textView.setText(str + "님 로그인 되었습니다.");
-        Toast.makeText(this, gps.getLatitude()+"", Toast.LENGTH_LONG).show();
     }
 }

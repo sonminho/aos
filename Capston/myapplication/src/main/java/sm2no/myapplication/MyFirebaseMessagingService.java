@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.graphics.BitmapFactory;
 import android.location.Address;
 import android.location.Geocoder;
+import android.media.AudioManager;
 import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.AsyncTask;
@@ -89,6 +90,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
                 (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
 
         notificationManager.notify(0, notificationBuilder.build());
+
         try {
             JSONObject jsonObject = new JSONObject(message.getData());
             String msg = jsonObject.get("message").toString();
@@ -98,11 +100,14 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
                 Log.d("msg", "위치정보 파악하자");
                 PositionTask pTask = new PositionTask();
                 pTask.execute("위치", userid);
-            } else if(msg.equals("")) {
-
+            } else if(msg.equals("sound_on")) {
+                Log.d("msg", "무음해제");
+                SoundTask sTask = new SoundTask();
+                sTask.execute("모드", userid);
             } else if(msg.equals("camera")) {
 
             }
+
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -170,6 +175,88 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
             if(result.equals("1")) {
                 Toast.makeText(getApplicationContext(), "서버요청에 응답하였습니다.", Toast.LENGTH_SHORT).show();
             } else {
+                Toast.makeText(MyFirebaseMessagingService.this, "서버요청에 응답 실패하였습니다.", Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
+
+    public class SoundTask extends AsyncTask<String, Void, String>{
+        AudioManager mAudioManager = null;
+        String status = "";
+        String result = "-1";
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+
+            mAudioManager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
+
+        }
+
+        @Override
+        protected String doInBackground(String... params) {
+            try {
+                URL url = new URL("http://192.168.0.14:8080/Capston/AndroidServlet?command=android_response");
+
+                HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+
+                conn.setDefaultUseCaches(false);
+                conn.setDoInput(true);  // 서버에서 읽기 모드 지정
+                conn.setDoOutput(true); // 서버로 쓰기 모드 지정
+                conn.setRequestMethod("POST");  // 전송방식
+
+                // 서버에게 웹에서 <Form>으로 값이 넘어온 것과 같은 방식으로 처리하라는 것을 알려줌
+                conn.setRequestProperty("content-type", "application/x-www-form-urlencoded");
+
+                // 현재 상태 확인;
+                sount_mode_check();
+
+                // 서버로 값 전송할 데이터
+                StringBuffer buffer = new StringBuffer();
+                buffer.append("rMsg").append("=").append(status + "에서 벨소리 모드로 전환하였습니다.").append("&");
+                buffer.append("rUserid").append("=").append(params[1]);
+
+                // 벨소리 모드로 전환
+                mAudioManager.setRingerMode(AudioManager.RINGER_MODE_NORMAL);
+
+                // 서버로 전송하고 버퍼 비움
+                OutputStreamWriter outputStream = new OutputStreamWriter(conn.getOutputStream(), "UTF-8");
+                PrintWriter writer = new PrintWriter(outputStream);
+                writer.write(buffer.toString());
+                writer.flush();
+
+                // 서버에서 전송받기
+                InputStream inputStream = conn.getInputStream();
+                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
+                result = bufferedReader.readLine();
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+            return result;
+        }
+
+        @Override
+        protected void onPostExecute(String result) {
+            if(result.equals("1")) {
+                Toast.makeText(getApplicationContext(), "서버요청에 응답하였습니다.", Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(MyFirebaseMessagingService.this, "서버요청에 응답 실패하였습니다.", Toast.LENGTH_SHORT).show();
+            }
+        }
+
+        public void sount_mode_check() {
+            switch (mAudioManager.getRingerMode()) {
+                case AudioManager.RINGER_MODE_NORMAL:
+                    status = "진동모드";
+                    break;
+                case AudioManager.RINGER_MODE_SILENT:
+                    status = "무음모드";
+                    break;
+                case AudioManager.RINGER_MODE_VIBRATE:
+                    status = "벨소리모드";
+                    break;
 
             }
         }
