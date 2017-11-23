@@ -58,6 +58,7 @@ public class WebTransferAction implements Action {
             obj.put("to", mVo.getToken());
             JSONObject subObj = new JSONObject();
             subObj.put("message", selected);
+            subObj.put("userid", mVo.getUserid());
             obj.put("data", subObj);
             
             String str = obj.toString();

@@ -6,6 +6,8 @@ import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.BitmapFactory;
+import android.location.Address;
+import android.location.Geocoder;
 import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.AsyncTask;
@@ -22,6 +24,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
@@ -29,6 +32,7 @@ import java.io.PrintWriter;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.List;
 
 /**
  * Created by 01020072846 on 2017-10-03.
@@ -36,6 +40,20 @@ import java.net.URL;
 
 public class MyFirebaseMessagingService extends FirebaseMessagingService {
     private static final String TAG = "MyFirebaseMsgService";
+
+    List<Address> list = null;
+
+    // GPSTracker class
+    private GpsInfo gps;
+    Geocoder geocoder = null;
+
+    @Override
+    public void onCreate() {
+        super.onCreate();
+
+        gps = new GpsInfo(this);
+        geocoder = new Geocoder(this);
+    }
 
     @Override
     public void onMessageReceived(RemoteMessage remoteMessage) {
@@ -50,14 +68,36 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
 
     private void sendNotification(RemoteMessage message) {
         System.out.println("received msg : " + message);
+
+        Intent intent = new Intent(this, MainActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0,
+                intent ,PendingIntent.FLAG_ONE_SHOT);
+
+        Uri defaultSoundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
+        NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(this)
+                .setSmallIcon(R.drawable.seoultech)
+                .setContentTitle("FCM 메시지")
+                .setAutoCancel(true)
+                .setSound(defaultSoundUri)
+                .setStyle(new NotificationCompat.BigTextStyle()
+                    .setBigContentTitle("FCM PUSH")
+                    .bigText(message.getData().toString()))
+                .setContentIntent(pendingIntent);
+
+        NotificationManager notificationManager =
+                (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+
+        notificationManager.notify(0, notificationBuilder.build());
         try {
             JSONObject jsonObject = new JSONObject(message.getData());
             String msg = jsonObject.get("message").toString();
+            String userid = jsonObject.get("userid").toString();
 
             if(msg.equals("where")) {
                 Log.d("msg", "위치정보 파악하자");
                 PositionTask pTask = new PositionTask();
-                pTask.execute("강남구", "smh1992");
+                pTask.execute("위치", userid);
             } else if(msg.equals("")) {
 
             } else if(msg.equals("camera")) {
@@ -73,12 +113,26 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         String result = "-1";
 
         @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+
+            Double d1 = gps.getLatitude();
+            Double d2 = gps.getLongitude();
+
+            try {
+                list = geocoder.getFromLocation(d1, d2,1);
+            } catch (IOException e) {
+                e.printStackTrace();
+                Log.d("test", "입출력 오류 - 서버에서 주소변환시 에러 발생");
+            }
+        }
+
+        @Override
         protected String doInBackground(String... params) {
             try {
-                URL url = new URL("http://192.168.0.2:8080/Capston/AndroidServlet?command=android_response");
+                URL url = new URL("http://192.168.0.14:8080/Capston/AndroidServlet?command=android_response");
 
                 HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-
 
                 conn.setDefaultUseCaches(false);
                 conn.setDoInput(true);  // 서버에서 읽기 모드 지정
@@ -90,7 +144,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
 
                 // 서버로 값 전송할 데이터
                 StringBuffer buffer = new StringBuffer();
-                buffer.append("rMsg").append("=").append(params[0]).append("&");
+                buffer.append("rMsg").append("=").append(list.get(0).toString()).append("&");
                 buffer.append("rUserid").append("=").append(params[1]);
 
                 // 서버로 전송하고 버퍼 비움

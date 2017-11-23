@@ -15,20 +15,22 @@ body{
 	margin:0px;
 }
 #wrapper{
-	width: 964px;
+	width: 100%;
 	overflow: hidden;
 }
 #tb{
-	padding:50px;
-	width: 100%;
+	width: 70%;
 }
 table{
 	border-collapse: collapse; /* 테이블 경계선 제거 */
 }
+tr{
+	min-height: 100px;
+}
 td{
-	padding: 6px;
 	font-size: 9pt;
 	min-width: 200px;
+
 	text-align:center;
 }
 *{

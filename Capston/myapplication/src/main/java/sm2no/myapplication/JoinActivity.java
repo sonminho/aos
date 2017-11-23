@@ -123,7 +123,7 @@ public class JoinActivity extends AppCompatActivity {
         @Override
         protected String doInBackground(String... params) {
             try {
-                URL url = new URL("http://192.168.0.2:8080/Capston/AndroidServlet?command=android_idCheck&userid="+params[0]);
+                URL url = new URL("http://192.168.0.14:8080/Capston/AndroidServlet?command=android_idCheck&userid="+params[0]);
                 HttpURLConnection conn = (HttpURLConnection) url.openConnection();
                 conn.connect();
 
@@ -163,7 +163,7 @@ public class JoinActivity extends AppCompatActivity {
             
             try {
 
-                URL url = new URL("http://192.168.0.2:8080/Capston/AndroidServlet?command=android_join");
+                URL url = new URL("http://192.168.0.14:8080/Capston/AndroidServlet?command=android_join");
                 HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 
                 conn.setDefaultUseCaches(false);
