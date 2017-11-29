@@ -12,5 +12,7 @@
 <fullyQualifiedTypeName name="dao.CategoryDAO"/>
 <fullyQualifiedTypeName name="com.oreilly.servlet.MultipartRequest"/>
 <fullyQualifiedTypeName name="com.oreilly.servlet.multipart.DefaultFileRenamePolicy"/>
+<fullyQualifiedTypeName name="javax.servlet.ServletContext"/>
+<fullyQualifiedTypeName name="javax.servlet.jsp.JspFactory"/>
 <fullyQualifiedTypeName name="dao.ProductDAO"/>
 </qualifiedTypeNameHistroy>

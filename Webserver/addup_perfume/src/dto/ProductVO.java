@@ -6,7 +6,7 @@ public class ProductVO {
 	private int productPrice;
 	private String productContent;
 	private String productSexCategory;
-	private String productLevelCatogory;
+	private String productLevelCategory;
 	private String productImage;
 	
 	public int getProductNumber() {
@@ -39,11 +39,11 @@ public class ProductVO {
 	public void setProductSexCategory(String productSexCategory) {
 		this.productSexCategory = productSexCategory;
 	}
-	public String getProductLevelCatogory() {
-		return productLevelCatogory;
+	public String getProductLevelCategory() {
+		return productLevelCategory;
 	}
-	public void setProductLevelCatogory(String productLevelCatogory) {
-		this.productLevelCatogory = productLevelCatogory;
+	public void setProductLevelCategory(String productLevelCategory) {
+		this.productLevelCategory = productLevelCategory;
 	}
 	public String getProductImage() {
 		return productImage;

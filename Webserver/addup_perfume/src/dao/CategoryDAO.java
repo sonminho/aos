@@ -42,7 +42,7 @@ public class CategoryDAO {
 		return conn;
 	}
 	
-	public ArrayList<CategoryVO> getAllCategory() throws SQLException {
+	public ArrayList<CategoryVO> getAllSexCategory() throws SQLException {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -51,21 +51,52 @@ public class CategoryDAO {
 		
 		try {
 			conn = getConnection();
-			String sql = "select * from category";
+			String sql = "select distinct categorysex from category";
 			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 			
 			cList = new ArrayList<CategoryVO>();
 			
 			while(rs.next()) {
-				int categoryNumber = rs.getInt("categorynumber");
 				String categorySex = rs.getString("categorysex");
-				String categoryLevel = rs.getString("categorylevel");
 				
 				CategoryVO cVo = new CategoryVO();
 				
-				cVo.setCategoryNumber(categoryNumber);
 				cVo.setCategorySex(categorySex);
+				
+				cList.add(cVo);
+			}
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally { 
+			if(rs != null) rs.close();
+			if(pstmt != null) pstmt.close();
+			if(conn != null) conn.close();
+		}
+		
+		return cList;
+	}
+	
+	public ArrayList<CategoryVO> getAllLevelCategory() throws SQLException {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		ArrayList<CategoryVO> cList = null;
+		
+		try {
+			conn = getConnection();
+			String sql = "select distinct CATEGORYLEVEL from category";
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			
+			cList = new ArrayList<CategoryVO>();
+			
+			while(rs.next()) {
+				String categoryLevel = rs.getString("CATEGORYLEVEL");
+				
+				CategoryVO cVo = new CategoryVO();
+				
 				cVo.setCategoryLevel(categoryLevel);
 				
 				cList.add(cVo);
@@ -75,7 +106,7 @@ public class CategoryDAO {
 		} finally { 
 			if(rs != null) rs.close();
 			if(pstmt != null) pstmt.close();
-			if(rs != null) rs.close();
+			if(conn != null) conn.close();
 		}
 		
 		return cList;
