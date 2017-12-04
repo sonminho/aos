@@ -1,0 +1,12 @@
+package dto;
+
+public class PlaceVO {
+	private int place_number;
+	private String place_name;
+	private String place_location;
+	private String place_type;
+	private String place_tema;
+	private String place_content;
+	private String place_images;
+	private String place_hour;
+}

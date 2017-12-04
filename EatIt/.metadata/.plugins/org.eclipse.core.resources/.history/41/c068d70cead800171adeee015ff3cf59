@@ -1,0 +1,61 @@
+package dto;
+
+public class PlaceVO {
+	private int place_number;
+	private String place_name;
+	private String place_location;
+	private String place_type;
+	private String place_tema;
+	private String place_content;
+	private String place_images;
+	private String place_hour;
+	
+	public int getPlace_number() {
+		return place_number;
+	}
+	public void setPlace_number(int place_number) {
+		this.place_number = place_number;
+	}
+	public String getPlace_name() {
+		return place_name;
+	}
+	public void setPlace_name(String place_name) {
+		this.place_name = place_name;
+	}
+	public String getPlace_location() {
+		return place_location;
+	}
+	public void setPlace_location(String place_location) {
+		this.place_location = place_location;
+	}
+	public String getPlace_type() {
+		return place_type;
+	}
+	public void setPlace_type(String place_type) {
+		this.place_type = place_type;
+	}
+	public String getPlace_tema() {
+		return place_tema;
+	}
+	public void setPlace_tema(String place_tema) {
+		this.place_tema = place_tema;
+	}
+	public String getPlace_content() {
+		return place_content;
+	}
+	public void setPlace_content(String place_content) {
+		this.place_content = place_content;
+	}
+	public String getPlace_images() {
+		return place_images;
+	}
+	public void setPlace_images(String place_images) {
+		this.place_images = place_images;
+	}
+	public String getPlace_hour() {
+		return place_hour;
+	}
+	public void setPlace_hour(String place_hour) {
+		this.place_hour = place_hour;
+	}
+}

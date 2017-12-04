@@ -1,0 +1,20 @@
+package controller.action;
+
+import java.io.IOException;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+public class PlaceLocationAction implements Action {
+
+	@Override
+	public void execute(HttpServletRequest request, HttpServletResponse response) throws IOException {
+		// TODO Auto-generated method stub
+		
+		request.setCharacterEncoding("UTF-8");
+		String location = request.getParameter("location", "utf-8");
+		
+		System.out.println("요청 지역 : " + location);
+	}
+
+}
