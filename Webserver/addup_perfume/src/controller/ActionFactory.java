@@ -8,7 +8,9 @@ import controller.action.ManagerRegisterAction;
 import controller.action.ManagerUpdateAction;
 import controller.action.ManagerUpdateAction2;
 import controller.action.ManagerUploadAction;
+import controller.action.ProductDetailAction;
 import controller.action.ProductListAction;
+import controller.action.ProductListAction2;
 import controller.action.UserLoginAction;
 
 public class ActionFactory {
@@ -44,6 +46,10 @@ public class ActionFactory {
 			action = new UserLoginAction();
 		} else if(command.equals("product_list")) {
 			action = new ProductListAction();
+		} else if(command.equals("product_list2")) {
+			action = new ProductListAction2();
+		} else if(command.equals("product_detail")) {
+			action = new ProductDetailAction();
 		}
 		
 		return action;

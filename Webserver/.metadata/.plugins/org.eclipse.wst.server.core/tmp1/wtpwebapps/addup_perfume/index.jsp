@@ -158,9 +158,9 @@ body > #wrap{
 				<dt><a href="#">shop</a></dt>
 				<dd><a href="ControllerServlet?command=product_list&category=man">Man</a></dd>
 				<dd><a href="ControllerServlet?command=product_list&category=woman">Woman</a></dd>
-				<dd><a href="#">Perfume</a></dd>
-				<dd><a href="#">Eau de perfume</a></dd>
-				<dd><a href="#">Eau de cologne</a></dd>
+				<dd><a href="ControllerServlet?command=product_list2&category=perfume">Perfume</a></dd>
+				<dd><a href="ControllerServlet?command=product_list2&category=eaudeperfume">Eau de perfume</a></dd>
+				<dd><a href="ControllerServlet?command=product_list2&category=eaudecologne">Eau de cologne</a></dd>
 				<dd><a href="#">Recommend</a></dd>
 			</dl>
 			<dl class="category_community">

@@ -32,7 +32,6 @@ public class ProductListAction implements Action {
 		try {
 			System.out.println(category);
 			list = pDao.getProductsBySexCategory(category);
-			System.out.println(list.get(0).getProductName());
 		} catch(Exception e) {
 			e.printStackTrace();
 		}

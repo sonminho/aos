@@ -8,7 +8,6 @@ import java.util.ArrayList;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
-import javax.servlet.RequestDispatcher;
 import javax.sql.DataSource;
 
 import com.oreilly.servlet.MultipartRequest;
@@ -266,5 +265,84 @@ public class ProductDAO {
 		}
 		
 		return list;
+	}
+	
+	public ArrayList<ProductVO> getProductByLevelCategory(String category) throws SQLException {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		ArrayList<ProductVO> list = null;
+		
+		String sql = "select * from product where product_level_category=?";
+		
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, category);
+			rs = pstmt.executeQuery();
+			
+			list = new ArrayList<ProductVO>();
+			
+			while(rs.next()) {
+				ProductVO pVo = new ProductVO();
+				
+				pVo.setProductNumber(rs.getInt("product_number"));
+				pVo.setProductName(rs.getString("product_name"));
+				pVo.setProductPrice(rs.getInt("product_price"));
+				pVo.setProductContent(rs.getString("product_content"));
+				pVo.setProductSexCategory(rs.getString("product_sex_category"));
+				pVo.setProductLevelCategory(rs.getString("product_level_category"));
+				pVo.setProductImage(rs.getString("product_image"));
+				
+				list.add(pVo);
+			}
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			if(rs != null) rs.close();
+			if(pstmt != null) pstmt.close();
+			if(conn != null) conn.close();
+		}
+		
+		return list;
+	}
+	
+	public ProductVO getProductByNumber(int product_number) throws SQLException {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		String sql = "select * from product where product_number=?";
+		ProductVO pVo = null;
+		
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, product_number);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				pVo = new ProductVO();
+				
+				pVo.setProductNumber(rs.getInt("product_number"));
+				pVo.setProductName(rs.getString("product_name"));
+				pVo.setProductPrice(rs.getInt("product_price"));
+				pVo.setProductContent(rs.getString("product_content"));
+				pVo.setProductSexCategory(rs.getString("product_sex_category"));
+				pVo.setProductLevelCategory(rs.getString("product_level_category"));
+				pVo.setProductImage(rs.getString("product_image"));
+			}
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			if(rs != null) rs.close();
+			if(pstmt != null) pstmt.close();
+			if(conn != null) conn.close();
+		}
+		
+		return pVo;
 	}
 }

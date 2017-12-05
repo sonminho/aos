@@ -11,6 +11,10 @@ html, body{
 	width:100%;
 	height:100%;
 }
+a{
+	text-decoration: none;
+	color:#555;
+}
 #wrap{
 	width:1400px;
 	height:100%;
@@ -150,9 +154,13 @@ body > #wrap{
 	text-align:center;
 	margin-top:60px;
 }
-
-
 </style>
+<script src="http://code.jquery.com/jquery-3.1.1.js"></script>
+<script>
+	$(document).ready(function(){
+		$('#product_list tr:odd').css('background', '#F9F9F9');
+	});
+</script>
 </head>
 <body>
 <div id="wrap">
@@ -177,9 +185,9 @@ body > #wrap{
 				<dt><a href="#">shop</a></dt>
 				<dd><a href="ControllerServlet?command=product_list&category=man">Man</a></dd>
 				<dd><a href="ControllerServlet?command=product_list&category=woman">Woman</a></dd>
-				<dd><a href="#">Perfume</a></dd>
-				<dd><a href="#">Eau de perfume</a></dd>
-				<dd><a href="#">Eau de cologne</a></dd>
+				<dd><a href="ControllerServlet?command=product_list2&category=perfume">Perfume</a></dd>
+				<dd><a href="ControllerServlet?command=product_list2&category=eaudeperfume">Eau de perfume</a></dd>
+				<dd><a href="ControllerServlet?command=product_list2&category=eaudecologne">Eau de cologne</a></dd>
 				<dd><a href="#">Recommend</a></dd>
 			</dl>
 			<dl class="category_community">
@@ -195,29 +203,29 @@ body > #wrap{
 				<li><%= list.get(0).getProductSexCategory() %> 향수</li>
 			</ul>
 			<div id="product_list">
-			<table>
-			<%
-				for(ProductVO pVo : list) {
-			%>
-				<tr>
-					<td style="width:200px; padding:10px">
-					<%
-							String imagePath = request.getContextPath() +"/upload_image/"
-							+ pVo.getProductImage();
-							System.out.println(imagePath + "이미지 경로");
-							request.setAttribute("productVO", pVo);
-					%>
-					<img src="<%=imagePath %>" border=0 width="150px" height="150px">
-					</td>
-					<td style="width:300px;"><%= pVo.getProductName() %></td>
-					<td style="width:400px;"><%= pVo.getProductContent() %></td>
-					<td style="width:220px;"><%= pVo.getProductPrice() %>원</td>
-				</tr>
-			<%
-				}
-			%>
-			</table>
-		</div>
+				<table>
+				<%
+					for(ProductVO pVo : list) {
+				%>
+					<tr>
+						<td style="width:200px; padding:10px">
+						<%
+								String imagePath = request.getContextPath() +"/upload_image/"
+								+ pVo.getProductImage();
+								System.out.println(imagePath + "이미지 경로");
+								request.setAttribute("productVO", pVo);
+						%>
+						<img src="<%=imagePath %>" border=0 width="150px" height="150px">
+						</td>
+						<td style="width:300px;"><a href="ControllerServlet?command=product_detail&product_number=<%= pVo.getProductNumber() %>"><%= pVo.getProductName() %></a></td>
+						<td style="width:400px;"><%= pVo.getProductContent() %></td>
+						<td style="width:220px;"><%= pVo.getProductPrice() %>원</td>
+					</tr>
+				<%
+					}
+				%>
+				</table>
+			</div>
 		</div>
 	</div> <!-- container -->
 </div> <!-- wrap -->
