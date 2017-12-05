@@ -1,0 +1,11 @@
+package dao;
+
+public class UserDAO {
+	private UserDAO(){}
+	
+	private UserDAO instance = new UserDAO();
+	
+	public UserDAO getInstance() {
+		return instance;
+	}
+}

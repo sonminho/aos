@@ -8,6 +8,8 @@ import controller.action.ManagerRegisterAction;
 import controller.action.ManagerUpdateAction;
 import controller.action.ManagerUpdateAction2;
 import controller.action.ManagerUploadAction;
+import controller.action.ProductListAction;
+import controller.action.UserLoginAction;
 
 public class ActionFactory {
 	
@@ -38,6 +40,10 @@ public class ActionFactory {
 			action = new ManagerUpdateAction();
 		} else if(command.equals("manager_update2")) {
 			action = new ManagerUpdateAction2();
+		} else if(command.equals("user_login")) {
+			action = new UserLoginAction();
+		} else if(command.equals("product_list")) {
+			action = new ProductListAction();
 		}
 		
 		return action;

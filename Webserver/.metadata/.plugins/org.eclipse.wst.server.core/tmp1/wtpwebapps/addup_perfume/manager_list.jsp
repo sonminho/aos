@@ -8,7 +8,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Insert title here</title>
-</head><style>
+<style>
 html, body{
 	width:100%;
 	height:100%;

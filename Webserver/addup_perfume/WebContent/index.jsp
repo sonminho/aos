@@ -156,8 +156,8 @@ body > #wrap{
 			</dl>
 			<dl class="category_shop">
 				<dt><a href="#">shop</a></dt>
-				<dd><a href="#">Man</a></dd>
-				<dd><a href="#">Woman</a></dd>
+				<dd><a href="ControllerServlet?command=product_list&category=man">Man</a></dd>
+				<dd><a href="ControllerServlet?command=product_list&category=woman">Woman</a></dd>
 				<dd><a href="#">Perfume</a></dd>
 				<dd><a href="#">Eau de perfume</a></dd>
 				<dd><a href="#">Eau de cologne</a></dd>
