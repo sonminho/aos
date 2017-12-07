@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="UTF-8"%>
 <%@ page import="java.util.*, dao.ProductDAO, dto.ProductVO" %>    
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -164,8 +165,8 @@ body > #wrap{
 	<div id="header">
 		<h1 class="logo"><a href="index.jsp"><img src="img/logo.png"/></a></h1>	
 		<dl class="topnav">
-			<dd><a href="login.jsp">login</a></dd>
-			<dd><a href="#">join us</a></dd>
+			<dd><a href="user_login.jsp">login</a></dd>
+			<dd><a href="ControllerServlet?command=logout">log out</a></dd>
 			<dd><a href="#">my page</a></dd>
 			<dd><a href="#">cart</a></dd>
 			<dd><a href="#">order</a></dd>
@@ -196,13 +197,13 @@ body > #wrap{
 		</div> <!-- mainnav -->
 		<div id="content">
 			<ul>
-				<li>향수 이름</li>
+				<% ProductVO pVo = (ProductVO)request.getAttribute("product"); %>
+				<li><%= pVo.getProductName() %></li>
 			</ul>
 			<div id="product_list">
 			<table>
 				<tr>
 					<td style="width:600px; height:600px;">
-						<% ProductVO pVo = (ProductVO)request.getAttribute("product"); %>
 						<%
 							String imagePath = request.getContextPath() +"/upload_image/"
 							+ pVo.getProductImage();
@@ -230,7 +231,8 @@ body > #wrap{
 							
 							<tr style="width:540px; height:100px;">
 								<td>
-										<input type="button" style="width:160px; height:50px; margin-left:30px" value="주문하기"></input>
+										<input type="button" style="width:160px; height:50px; margin-left:30px" value="주문하기" 
+										onclick="location.href='ControllerServlet?command=user_order&product_number=<%=pVo.getProductNumber()%>'"></input>
 								</td>
 								<td>
 										<input type="button" style="width:160px; height:50px; margin-left:30px" value="장바구니"></input>

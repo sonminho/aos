@@ -14,6 +14,11 @@
 <fullyQualifiedTypeName name="com.oreilly.servlet.multipart.DefaultFileRenamePolicy"/>
 <fullyQualifiedTypeName name="javax.servlet.ServletContext"/>
 <fullyQualifiedTypeName name="javax.servlet.jsp.JspFactory"/>
-<fullyQualifiedTypeName name="dao.ProductDAO"/>
 <fullyQualifiedTypeName name="javax.servlet.RequestDispatcher"/>
+<fullyQualifiedTypeName name="javax.servlet.http.HttpSession"/>
+<fullyQualifiedTypeName name="dto.ProductVO"/>
+<fullyQualifiedTypeName name="dao.ProductDAO"/>
+<fullyQualifiedTypeName name="dao.UserDAO"/>
+<fullyQualifiedTypeName name="dto.OrderVO"/>
+<fullyQualifiedTypeName name="dao.OrderDAO"/>
 </qualifiedTypeNameHistroy>

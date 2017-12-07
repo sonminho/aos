@@ -1,0 +1,60 @@
+package controller.action;
+
+import java.io.IOException;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.oreilly.servlet.MultipartRequest;
+import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
+
+import dao.UserDAO;
+import dto.UserVO;
+
+public class UserJoinAction implements Action {
+
+	@Override
+	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		
+		request.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html; charset=UTF-8");
+		int result = -1;
+		
+		String upload = request.getRealPath("upload_image");
+		int maxSize = 1024*1024*20;	
+		
+		MultipartRequest multi = new MultipartRequest(request, upload
+				, maxSize, "EUC-KR", new DefaultFileRenamePolicy());
+		
+		
+		String user_id = request.getParameter("user_id");
+		String user_password = request.getParameter("user_password");
+		String user_name = request.getParameter("user_name");
+		String user_address = request.getParameter("user_address");
+		String user_phone = request.getParameter("user_phone");
+		String user_age = request.getParameter("user_age");
+		String user_sex = multi.getParameter("user_sex");
+		
+		UserDAO uDao = UserDAO.getInstance();
+		UserVO uVo = new UserVO();
+		
+		System.out.println(user_sex);
+		
+		uVo.setUser_id(user_id);
+		uVo.setUser_password(user_password);
+		uVo.setUser_name(user_name);
+		uVo.setUser_address(user_address);
+		uVo.setUser_phone(user_phone);
+		uVo.setUser_age((int)Integer.valueOf(user_age));
+		uVo.setUser_sex(user_sex);
+		
+		try {
+			//result = uDao.userJoin(uVo);
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		System.out.println(result);
+	}
+}

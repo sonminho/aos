@@ -11,7 +11,6 @@ import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 import dao.ProductDAO;
-import dto.ProductVO;
 
 public class ManagerUpdateAction2 implements Action{
 

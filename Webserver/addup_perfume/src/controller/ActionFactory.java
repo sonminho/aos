@@ -1,6 +1,7 @@
 package controller;
 
 import controller.action.Action;
+import controller.action.LogOutAction;
 import controller.action.ManagerDeleteAction;
 import controller.action.ManagerListAction;
 import controller.action.ManagerLoginAction;
@@ -12,6 +13,7 @@ import controller.action.ProductDetailAction;
 import controller.action.ProductListAction;
 import controller.action.ProductListAction2;
 import controller.action.UserLoginAction;
+import controller.action.UserOrderAction;
 
 public class ActionFactory {
 	
@@ -50,6 +52,10 @@ public class ActionFactory {
 			action = new ProductListAction2();
 		} else if(command.equals("product_detail")) {
 			action = new ProductDetailAction();
+		} else if(command.equals("logout")) {
+			action = new LogOutAction();
+		} else if(command.equals("user_order")) {
+			action = new UserOrderAction();
 		}
 		
 		return action;

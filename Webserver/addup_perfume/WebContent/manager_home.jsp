@@ -1,5 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
+<%
+	if(session.getAttribute("mLogin") == null) {
+		RequestDispatcher dispatcher = request.getRequestDispatcher("manager_login.jsp");
+		dispatcher.forward(request, response);
+	}
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -164,11 +170,7 @@ body > #wrap{
 	<div id="header">
 		<h1 class="logo"><a href="index.jsp"><img src="img/logo.png"/></a></h1>	
 		<dl class="topnav">
-			<dd><a href="login.jsp">login</a></dd>
-			<dd><a href="#">join us</a></dd>
-			<dd><a href="#">my page</a></dd>
-			<dd><a href="#">cart</a></dd>
-			<dd><a href="#">order</a></dd>
+			<dd><a href="ControllerServlet?command=logout">logout</a></dd>
 			<dd><a href="manager_login.jsp">manager</a></dd>
 		</dl>
 	</div> <!-- header -->
@@ -191,9 +193,7 @@ body > #wrap{
 			
 		</div> <!-- mainnav -->
 		<div id="content">
-			<form name="frm" action="ControllerServlet?command=manager_register" method="post">
-				
-			</form>
+			
 		</div>
 	</div> <!-- container -->
 </div> <!-- wrap -->

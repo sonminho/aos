@@ -1,9 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<c:if test="${uLogin == 1}">
+<%
+	String user_id = (String)session.getAttribute("uLogin");
 	
-</c:if>
+	System.out.println("세션에 등록된 아이디 " +user_id);
+	
+	if(user_id != null) {
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/index.jsp");
+		dispatcher.forward(request, response);
+	}
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -169,8 +176,8 @@ body > #wrap{
 	<div id="header">
 		<h1 class="logo"><a href="index.jsp"><img src="img/logo.png"/></a></h1>	
 		<dl class="topnav">
-			<dd><a href="login.jsp">login</a></dd>
-			<dd><a href="#">join us</a></dd>
+			<dd><a href="user_login.jsp">login</a></dd>
+			<dd><a href="ControllerServlet?command=logout">log out</a></dd>
 			<dd><a href="#">my page</a></dd>
 			<dd><a href="#">cart</a></dd>
 			<dd><a href="#">order</a></dd>
@@ -204,7 +211,7 @@ body > #wrap{
 				아이디&nbsp; &nbsp;&nbsp; &nbsp;<input type="text" name="id"><br>
 				비밀번호&nbsp; &nbsp;<input type="password" name="pw"><br>
 				<input type="submit" onclick="return loginCheck();"value="로그인" style="width:240px;">
-				<button style="width:240px">회원가입</button>
+				<input type="button" style="width:240px" onclick="location.href='user_join.jsp'" value="회원가입">
 			</form>
 		</div>
 	</div> <!-- container -->

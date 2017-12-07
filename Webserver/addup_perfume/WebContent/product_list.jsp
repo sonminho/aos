@@ -167,8 +167,8 @@ body > #wrap{
 	<div id="header">
 		<h1 class="logo"><a href="index.jsp"><img src="img/logo.png"/></a></h1>	
 		<dl class="topnav">
-			<dd><a href="login.jsp">login</a></dd>
-			<dd><a href="#">join us</a></dd>
+			<dd><a href="user_login.jsp">login</a></dd>
+			<dd><a href="ControllerServlet?command=logout">log out</a></dd>
 			<dd><a href="#">my page</a></dd>
 			<dd><a href="#">cart</a></dd>
 			<dd><a href="#">order</a></dd>

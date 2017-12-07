@@ -1,0 +1,23 @@
+package controller.action;
+
+import java.io.IOException;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+public class UserLoginAction implements Action{
+
+	@Override
+	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		
+		request.setCharacterEncoding("UTF-8");
+		
+		String user_id = request.getParameter("id");
+		String user_password = request.getParameter("pw");
+		
+		System.out.println("사용자 아이디 : " + user_id + ", 사용자 비밀번호  : " + user_password);
+	}
+
+}
