@@ -206,7 +206,7 @@ pr{
 				<dt><a href="#">Product</a></dt>
 				<dd><a href="ControllerServlet?command=manager_register">Product Register</a></dd>
 				<dd><a href="ControllerServlet?command=manager_list">Product List</a></dd>
-				<dd><a href="#">Product order</a></dd>
+				<dd><a href="ControllerServlet?command=manager_order_list">Product order</a></dd>
 				<dd><a href="#">Product Q & A</a></dd>
 			</dl>
 			<dl class="community">

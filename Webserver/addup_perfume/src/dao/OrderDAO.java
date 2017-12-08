@@ -2,7 +2,9 @@ package dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -66,5 +68,45 @@ public class OrderDAO {
 		}
 		
 		return result;
+	}
+	
+	// 모든 주문 리스트 출력
+	public ArrayList<OrderVO> getAllOrderList() throws SQLException {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		ArrayList<OrderVO> list =  null;
+		String sql  = "select * from orders ORDER BY order_number asc";
+		
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			
+			list = new ArrayList<OrderVO>();
+			
+			while(rs.next()) {
+				OrderVO oVo = new OrderVO();
+				
+				oVo.setOrder_number(rs.getInt("order_number"));
+				oVo.setOrder_name(rs.getString("order_name"));
+				oVo.setOrder_address(rs.getString("order_address"));
+				oVo.setOrder_date(rs.getString("order_date"));
+				oVo.setOrder_product_number(rs.getInt("order_product_number"));
+				oVo.setOrder_price(rs.getInt("order_price"));
+				oVo.setOrder_product_name(rs.getString("order_product_name"));
+				
+				list.add(oVo);
+			}
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			if(rs != null) rs.close();
+			if(pstmt != null) pstmt.close();
+			if(conn != null) conn.close();
+		}
+		
+		return list;
 	}
 }

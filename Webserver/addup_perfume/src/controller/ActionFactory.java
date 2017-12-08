@@ -5,6 +5,7 @@ import controller.action.LogOutAction;
 import controller.action.ManagerDeleteAction;
 import controller.action.ManagerListAction;
 import controller.action.ManagerLoginAction;
+import controller.action.ManagerOrderListAction;
 import controller.action.ManagerRegisterAction;
 import controller.action.ManagerUpdateAction;
 import controller.action.ManagerUpdateAction2;
@@ -56,6 +57,8 @@ public class ActionFactory {
 			action = new LogOutAction();
 		} else if(command.equals("user_order")) {
 			action = new UserOrderAction();
+		} else if(command.equals("manager_order_list")) {
+			action = new ManagerOrderListAction();
 		}
 		
 		return action;

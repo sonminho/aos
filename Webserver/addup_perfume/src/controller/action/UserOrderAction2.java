@@ -3,6 +3,7 @@ package controller.action;
 import java.io.IOException;
 import java.util.Calendar;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -82,6 +83,7 @@ public class UserOrderAction2 extends HttpServlet {
 			e.printStackTrace();
 		}
 		
-		
+		RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
+		dispatcher.forward(request, response);
 	}
 }

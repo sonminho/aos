@@ -7,7 +7,7 @@
 	System.out.println("세션에 등록된 아이디 " + user_id);
 	
 	if(user_id == null) {
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/index.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/user_login.jsp");
 		dispatcher.forward(request, response);
 	}
 %>
