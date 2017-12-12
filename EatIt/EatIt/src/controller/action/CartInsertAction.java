@@ -31,7 +31,7 @@ public class CartInsertAction implements Action{
 		
 		if(uVo == null) {
 			System.out.println("로그인 하지 않은 회원입니다.");
-			RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("login.jsp");
 			dispatcher.forward(request, response);
 			
 			return;
@@ -54,7 +54,8 @@ public class CartInsertAction implements Action{
 			if(cDao.checkCart(cVo) == 1) {
 				System.out.println("이미 즐겨찾기에 있음");
 				
-				return;
+				RequestDispatcher dispatcher = request.getRequestDispatcher("ControllerServlet?command=cart_list");
+				dispatcher.forward(request, response);
 			}
 			
 			result = cDao.insertCart(cVo);
@@ -62,10 +63,13 @@ public class CartInsertAction implements Action{
 			e.printStackTrace();
 		}
 		
-		if(result >0) {
+		if(result > 0) {
 			System.out.println("즐겨찾기 추가 성공");
 		} else {
 			System.out.println("즐겨찾기 추가 실패");
 		}
+		
+		RequestDispatcher dispatcher = request.getRequestDispatcher("ControllerServlet?command=cart_list");
+		dispatcher.forward(request, response);
 	}
 }

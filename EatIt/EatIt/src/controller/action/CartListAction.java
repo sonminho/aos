@@ -24,7 +24,7 @@ public class CartListAction implements Action {
 		UserVO uVo = (UserVO)session.getAttribute("uLogin");
 		
 		if(uVo == null) {
-			RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("login.jsp");
 			dispatcher.forward(request, response);
 			
 			return;

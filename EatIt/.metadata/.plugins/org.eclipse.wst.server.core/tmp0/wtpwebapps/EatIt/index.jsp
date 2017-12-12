@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="utf-8"%>
-
+<%@ page import="dto.UserVO" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -64,7 +64,7 @@
    }
    
    .ad_img img{
-   		width:1200px;
+   		width:1150px;
    		height:580px;
    		margin:0 auto;
    }
@@ -106,7 +106,7 @@
    a{color:#000; text-decoration:none;}
    
    #main_bar{
-   		width:1400px;
+   		width:100%;
    		margin:0 auto;
    		padding-top:20px;
    }
@@ -129,7 +129,7 @@
    nav li {
    		position:relative;
    		float:left;
-   		width:380px;
+   		width:450px;
    		height:38px;
    }
    ul{
@@ -244,8 +244,8 @@ $(function() {
 <div class="main_div">
 <table class="top_nav">
    <tr>
-      <td><a href="login.jsp">로그인</a></td>
-      <td><a href="join_main.jsp">회원가입</a></td>
+      <td><a href="login.jsp"><%if((UserVO)session.getAttribute("uLogin") == null) {%>	로그인     <%}%></a></td>
+      <td><a href="join_main.jsp"><%if((UserVO)session.getAttribute("uLogin") == null) {%>	회원가입   <%}%></a></td>
       <td>마이페이지</td>
       <td><a href="ControllerServlet?command=cart_list">즐겨찾기</a></td>
       <td><a href="ControllerServlet?command=user_logout">로그아웃</a></td>
@@ -265,31 +265,32 @@ $(function() {
 <div id="main_bar">
 	<nav>
 	<ul id="main_category">
-		<li class="m1"><a href="local_search.jsp">공지 사항</a>
+		<li class="m1"><a href="#">공지 사항</a>
 		</li>
-		<li class="m2"><a href="local_search.jsp">지역 검색</a>
+		<li class="m2"><a href="#">지역 검색</a>
 			<ul>
 				<li><a href="ControllerServlet?command=place_location&location=nowongu">노원구</a></li>
 				<li><a href="#">광진구</a></li>
 				<li><a href="#">강북구</a></li>
 				<li><a href="#">영등포구</a></li>
-				<li><a href="#">강서구</a></li>
+				<li><a href="ControllerServlet?command=place_location&location=gangseogu">강서구</a></li>
 				<li><a href="#">강남구</a></li>
 				<li><a href="#">마포구</a></li>
 			</ul>
 		</li>
-		<li class="m3"><a href="detail_page.html">종류 검색</a>
+		<li class="m3"><a href="#">종류 검색</a>
 			<ul>
-				<li><a href="#">한식</a></li>
-				<li><a href="#">일식</a></li>
-				<li><a href="#">중식</a></li>
+				<li><a href="ControllerServlet?command=place_type&type=hansik">한식</a></li>
+				<li><a href="ControllerServlet?command=place_type&type=ilsik">일식</a></li>
+				<li><a href="ControllerServlet?command=place_type&type=joongsik">중식</a></li>
+				<li><a href="ControllerServlet?command=place_type&type=yangsik">양식</a></li>
 			</ul>
 		</li>
-		<li class="m4"><a href="detail_page.html">테마 검색</a>
+		<li class="m4"><a href="#">테마 검색</a>
 			<ul>
-				<li><a href="#">데이트</a></li>
-				<li><a href="#">가족 모임</a></li>
-				<li><a href="#">비지니스</a></li>
+				<li><a href="ControllerServlet?command=place_tema&tema=date">데이트</a></li>
+				<li><a href="ControllerServlet?command=place_tema&tema=family">가족</a></li>
+				<li><a href="ControllerServlet?command=place_tema&tema=bussiness">비지니스</a></li>
 				<li><a href="#">상견례</a></li>
 			</ul>
 		</li>
@@ -343,7 +344,7 @@ $(function() {
 	<img src="img/seoul.png" usemap="#seoul_main" >
 
 <map id="seoul_main" name="seoul_main">
-<area shape="circle" alt="강서구" title="" coords="142,260,24" href="http://localhost:8080/jQuery/detail_page.html" target="_self" />
+<area shape="circle" alt="강서구" title="" coords="142,260,24" href="ControllerServlet?command=place_location&location=gangseogu" target="_self" />
 <area shape="circle" alt="은평구" title="" coords="319,152,21" href="http://localhost:8080/jQuery/detail_page.html" target="_self" />
 <area shape="circle" alt="강남구" title="" coords="525,383,25" href="http://localhost:8080/jQuery/detail_page.html" target="_self" />
 <area shape="circle" alt="동작구" title="" coords="352,370,18" href="http://localhost:8080/jQuery/detail_page.html" target="_self" />

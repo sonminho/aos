@@ -146,5 +146,19 @@ public class CartDAO {
 		PreparedStatement pstmt = null;
 		
 		String sql = "delete from cart where cart_id=? and cart_number=?";
+		
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, cart_id);
+			pstmt.setString(2, cart_number);
+			pstmt.executeUpdate();
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			if(pstmt != null) pstmt.close();
+			if(conn != null) conn.close();
+		}
+		
 	}
 }

@@ -88,6 +88,100 @@ public class PlaceDAO {
 		return list;
 	}
 	
+	// 종류별로 찾기
+	public ArrayList<PlaceVO> getTypeProducts(String place_type) throws SQLException {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		PlaceVO pVo = null;
+		
+		// 해당 구에 속하는 모든 음식점들을 반환
+		String sql = "select * from place where place_type=?";
+		
+		ArrayList<PlaceVO> list = new ArrayList<PlaceVO>();
+
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, place_type);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				pVo = new PlaceVO();
+				
+				pVo.setPlace_number(rs.getInt("place_number"));
+				pVo.setPlace_name(rs.getString("place_name"));
+				pVo.setPlace_location(rs.getString("place_location"));
+				pVo.setPlace_type(rs.getString("place_type"));
+				pVo.setPlace_tema(rs.getString("place_tema"));
+				pVo.setPlace_content(rs.getString("place_content"));
+				pVo.setPlace_images(rs.getString("place_images"));
+				pVo.setPlace_hour(rs.getString("place_hour"));
+				pVo.setPlace_park(rs.getString("place_park"));
+				pVo.setPlace_phone(rs.getString("place_phone"));
+				pVo.setPlace_address(rs.getString("place_address"));
+				
+				list.add(pVo);
+			}
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			if(rs != null) rs.close();
+			if(pstmt != null) pstmt.close();
+			if(conn != null) conn.close();
+		}
+	
+		return list;
+	}
+	
+	// 테마별로 찾기
+	public ArrayList<PlaceVO> getTemaProducts(String place_tema) throws SQLException {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		PlaceVO pVo = null;
+		
+		// 해당 구에 속하는 모든 음식점들을 반환
+		String sql = "select * from place where place_tema=?";
+		
+		ArrayList<PlaceVO> list = new ArrayList<PlaceVO>();
+
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, place_tema);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				pVo = new PlaceVO();
+				
+				pVo.setPlace_number(rs.getInt("place_number"));
+				pVo.setPlace_name(rs.getString("place_name"));
+				pVo.setPlace_location(rs.getString("place_location"));
+				pVo.setPlace_type(rs.getString("place_type"));
+				pVo.setPlace_tema(rs.getString("place_tema"));
+				pVo.setPlace_content(rs.getString("place_content"));
+				pVo.setPlace_images(rs.getString("place_images"));
+				pVo.setPlace_hour(rs.getString("place_hour"));
+				pVo.setPlace_park(rs.getString("place_park"));
+				pVo.setPlace_phone(rs.getString("place_phone"));
+				pVo.setPlace_address(rs.getString("place_address"));
+				
+				list.add(pVo);
+			}
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			if(rs != null) rs.close();
+			if(pstmt != null) pstmt.close();
+			if(conn != null) conn.close();
+		}
+	
+		return list;
+	}
+	
 	// 음식점 고유 번호로 찾기
 	public PlaceVO getPlaceByNumber(int place_number) throws SQLException {
 		Connection conn = null;

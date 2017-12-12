@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
-<%@ page import="dao.PlaceDAO, dto.PlaceVO, java.util.*" %>
+<%@ page import="dao.PlaceDAO, dto.*, java.util.*" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -333,10 +333,10 @@ $(function() {
 <div class="main_div">
 <table class="top_nav">
    <tr>
-      <td><a href="login.jsp">로그인</a></td>
-      <td><a href="join_main.jsp">회원가입</a></td>
+      <td><a href="login.jsp"><%if((UserVO)session.getAttribute("uLogin") == null) {%>	로그인     <%}%></a></td>
+      <td><a href="join_main.jsp"><%if((UserVO)session.getAttribute("uLogin") == null) {%>	회원가입   <%}%></a></td>
       <td>마이페이지</td>
-      <td>즐겨찾기</td>
+      <td><a href="ControllerServlet?command=cart_list">즐겨찾기</a></td>
       <td><a href="ControllerServlet?command=user_logout">로그아웃</a></td>
    </tr>
 </table><br>
@@ -358,27 +358,28 @@ $(function() {
 		</li>
 		<li class="m2"><a href="#">지역 검색</a>
 			<ul>
-				<li><a href="#">노원구</a></li>
+				<li><a href="ControllerServlet?command=place_location&location=nowongu">노원구</a></li>
 				<li><a href="#">광진구</a></li>
 				<li><a href="#">강북구</a></li>
 				<li><a href="#">영등포구</a></li>
-				<li><a href="#">강서구</a></li>
+				<li><a href="ControllerServlet?command=place_location&location=gangseogu">강서구</a></li>
 				<li><a href="#">강남구</a></li>
 				<li><a href="#">마포구</a></li>
 			</ul>
 		</li>
 		<li class="m3"><a href="#">종류 검색</a>
 			<ul>
-				<li><a href="#">한식</a></li>
-				<li><a href="#">일식</a></li>
-				<li><a href="#">중식</a></li>
+				<li><a href="ControllerServlet?command=place_type&type=hansik">한식</a></li>
+				<li><a href="ControllerServlet?command=place_type&type=ilsik">일식</a></li>
+				<li><a href="ControllerServlet?command=place_type&type=joongsik">중식</a></li>
+				<li><a href="ControllerServlet?command=place_type&type=yangsik">양식</a></li>
 			</ul>
 		</li>
 		<li class="m4"><a href="#">테마 검색</a>
 			<ul>
-				<li><a href="#">데이트</a></li>
-				<li><a href="#">가족 모임</a></li>
-				<li><a href="#">비지니스</a></li>
+				<li><a href="ControllerServlet?command=place_tema&tema=date">데이트</a></li>
+				<li><a href="ControllerServlet?command=place_tema&tema=family">가족</a></li>
+				<li><a href="ControllerServlet?command=place_tema&tema=bussiness">비지니스</a></li>
 				<li><a href="#">상견례</a></li>
 			</ul>
 		</li>
@@ -395,27 +396,28 @@ $(function() {
 				</li>
 				<li class="menu"><a class="main" href="#">지역 검색</a>
 					<ul class="sub">
-						<li><a href="#">노원구</a></li>
+						<li><a href="ControllerServlet?command=place_location&location=nowongu">노원구</a></li>
 						<li><a href="#">광진구</a></li>
 						<li><a href="#">강북구</a></li>
 						<li><a href="#">영등포구</a></li>
-						<li><a href="#">강서구</a></li>
+						<li><a href="ControllerServlet?command=place_location&location=gangseogu">강서구</a></li>
 						<li><a href="#">강남구</a></li>
 						<li><a href="#">마포구</a></li>
 					</ul>
 				</li>
 				<li class="menu"><a class="main" href="#">종류 검색</a>
 					<ul class="sub">
-						<li><a href="#">한식</a></li>
-						<li><a href="#">일식</a></li>
-						<li><a href="#">중식</a></li>
+						<li><a href="ControllerServlet?command=place_type&type=hansik">한식</a></li>
+						<li><a href="ControllerServlet?command=place_type&type=ilsik">일식</a></li>
+						<li><a href="ControllerServlet?command=place_type&type=joongsik">중식</a></li>
+						<li><a href="ControllerServlet?command=place_type&type=yangsik">양식</a></li>
 					</ul>
 				</li>
 				<li class="menu"><a class="main" href="#">테마 검색</a>
 					<ul class="sub">
-						<li><a href="#">데이트</a></li>
-						<li><a href="#">가족 모임</a></li>
-						<li><a href="#">비지니스</a></li>
+						<li><a href="ControllerServlet?command=place_tema&tema=date">데이트</a></li>
+						<li><a href="ControllerServlet?command=place_tema&tema=family">가족</a></li>
+						<li><a href="ControllerServlet?command=place_tema&tema=bussiness">비지니스</a></li>
 						<li><a href="#">상견례</a></li>
 					</ul>
 				</li>
