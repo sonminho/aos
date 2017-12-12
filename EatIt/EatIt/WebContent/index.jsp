@@ -165,6 +165,28 @@
 		background: #eaeaea;
 		color: #333;
 	}
+	
+	.scale {
+	  transform: scale(1);
+	  -webkit-transform: scale(1);
+	  -moz-transform: scale(1);
+	  -ms-transform: scale(1);
+	  -o-transform: scale(1);
+	  transition: all 0.3s ease-in-out;   /* 부드러운 모션을 위해 추가*/
+	}
+	.scale:hover {
+	  transform: scale(1.2);
+	  -webkit-transform: scale(1.2);
+	  -moz-transform: scale(1.2);
+	  -ms-transform: scale(1.2);
+	  -o-transform: scale(1.2);
+	}
+	.img {overflow:hidden }
+	.scale img{
+		width:800px;
+   		height:530px;
+   		margin:0 auto;
+	}
 </style>
 <script src="http://code.jquery.com/jquery-3.1.1.js"></script>
 <script>
@@ -222,11 +244,11 @@ $(function() {
 <div class="main_div">
 <table class="top_nav">
    <tr>
-      <td><a href="#">로그인</a></td>
-      <td>회원가입</td>
+      <td><a href="login.jsp">로그인</a></td>
+      <td><a href="join_main.jsp">회원가입</a></td>
       <td>마이페이지</td>
-      <td>즐겨찾기</td>
-      <td>관리자</td>
+      <td><a href="ControllerServlet?command=cart_list">즐겨찾기</a></td>
+      <td><a href="ControllerServlet?command=user_logout">로그아웃</a></td>
    </tr>
 </table><br>
 <form class="main_search">
@@ -307,7 +329,7 @@ $(function() {
 <TABLE cellSpacing=0 cellPadding=0 width="100%" border=0>
 <TBODY>
 <TR>
-<TD height=20>&nbsp;<SPAN class=board style="FONT-SIZE: 14pt">공릉동 조마루 감자탕 오픈!!!!!!!!!!</SPAN></TD></TR>
+<TD height=20>&nbsp;<SPAN class=board style="FONT-SIZE: 14pt">공릉동 조마루 감자탕 오픈 예정</SPAN></TD></TR>
 <TR>
 <TD height=20>&nbsp;<SPAN class=board style="FONT-SIZE: 14pt">족발야시장 이번달 맛집 선정</SPAN></TD></TR>
 <TR>
@@ -316,7 +338,18 @@ $(function() {
 <TD height=20>&nbsp;<SPAN class=board style="FONT-SIZE: 14pt">공지사항4</SPAN></TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></DIV></MARQUEE></TD></TR></TBODY></TABLE></TD>
 <TD>&nbsp;</TD></TR></TBODY></TABLE>
 </fieldset><br>
-<img src="img/seoul.png">
+<div class="img">
+<div class="scale">
+	<img src="img/seoul.png" usemap="#seoul_main" >
+
+<map id="seoul_main" name="seoul_main">
+<area shape="circle" alt="강서구" title="" coords="142,260,24" href="http://localhost:8080/jQuery/detail_page.html" target="_self" />
+<area shape="circle" alt="은평구" title="" coords="319,152,21" href="http://localhost:8080/jQuery/detail_page.html" target="_self" />
+<area shape="circle" alt="강남구" title="" coords="525,383,25" href="http://localhost:8080/jQuery/detail_page.html" target="_self" />
+<area shape="circle" alt="동작구" title="" coords="352,370,18" href="http://localhost:8080/jQuery/detail_page.html" target="_self" />
+<area shape="circle" alt="노원구" title="" coords="554,126,24" href="ControllerServlet?command=place_location&location=nowongu" target="_self" />
+</map>
+</div></div>
 </div> <!-- content -->
 </div> <!-- main_div -->
 

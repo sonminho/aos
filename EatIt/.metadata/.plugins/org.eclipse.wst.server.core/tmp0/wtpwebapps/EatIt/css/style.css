@@ -1,0 +1,29 @@
+
+@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+* { font-family: 'Nanum Gothic', sans-serif; }
+
+.spaceLeft {
+  margin-left: 10px;
+}
+.spaceRight {
+  margin-right: 10px;
+}
+ .footer{
+   	   width:1800px;
+	   margin:0px auto;
+	   height:70px;
+	   padding:0;
+	   text-align:center;
+	   border-top:1px solid #cccccc;
+	   font-size:0.9em;
+	   color:#666;
+	   *zom:1;
+   }
+
+/* custom checkbox */
+.btn span.fa {
+	opacity: 0;
+}
+.btn.active span.fa {
+	opacity: 1;
+}

@@ -219,9 +219,9 @@
    }
    
    #main_bar nav ul ul li a {
-	background: #fff;
-	color: #555;
-	border-top: 1px solid #eaeaea;
+		background: #fff;
+		color: #555;
+		border-top: 1px solid #eaeaea;
 	}
 	
 	#main_bar nav ul ul li:first-child a {
@@ -246,6 +246,13 @@
 	
 	#content_list img{
 		padding:50px;
+	}
+	#content ul li input{
+		float:right;
+	}
+	
+	#content ul li input:after{
+		clear:both;
 	}
 	
 	#detail{
@@ -326,11 +333,11 @@ $(function() {
 <div class="main_div">
 <table class="top_nav">
    <tr>
-      <td><a href="#">로그인</a></td>
-      <td>회원가입</td>
+      <td><a href="login.jsp">로그인</a></td>
+      <td><a href="join_main.jsp">회원가입</a></td>
       <td>마이페이지</td>
       <td>즐겨찾기</td>
-      <td>관리자</td>
+      <td><a href="ControllerServlet?command=user_logout">로그아웃</a></td>
    </tr>
 </table><br>
 <form class="main_search">
@@ -417,8 +424,9 @@ $(function() {
 	</div> <!-- side bar -->
 	<div id="content">
 		<ul>
-			<% PlaceVO pVo = (PlaceVO)request.getAttribute("place"); %>
-			<li><a href="#"><%= pVo.getPlace_name() %></a></li>
+			<% 	PlaceVO pVo = (PlaceVO)request.getAttribute("place");
+			%>
+			<li><a href="#"><%= pVo.getPlace_name() %></a>&nbsp;&nbsp;<input type="button" value="즐겨찾기" onclick="location.href='ControllerServlet?command=cart_insert&place_number=<%=pVo.getPlace_number() %>'"></li>
 		</ul>
 		<div id="content_list">
 			<table>

@@ -1,0 +1,37 @@
+package dao;
+
+import java.sql.Connection;
+
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.sql.DataSource;
+
+public class UserDAO {
+	private static UserDAO instance = new UserDAO();
+	
+	private UserDAO(){
+	}
+	
+	public static UserDAO getInstance() {
+		return instance;
+	}
+	
+	// 데이터베이스 커넥션풀 연결
+	public Connection getConnection() {
+		Connection conn = null;
+		Context initContext = null;
+		Context envContext = null;
+		DataSource ds = null;
+		
+		try {
+			initContext = new InitialContext();
+			envContext = (Context) initContext.lookup("java:/comp/env");
+			ds = (DataSource) envContext.lookup("jdbc/myoracle");
+			conn = ds.getConnection();
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		return conn;
+	}
+}

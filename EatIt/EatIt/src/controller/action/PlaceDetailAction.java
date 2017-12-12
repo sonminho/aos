@@ -14,7 +14,6 @@ public class PlaceDetailAction implements Action {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		
 		int place_number = (int)Integer.valueOf(request.getParameter("place_number"));
 		

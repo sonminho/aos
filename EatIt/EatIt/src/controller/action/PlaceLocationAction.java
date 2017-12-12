@@ -15,7 +15,7 @@ public class PlaceLocationAction implements Action {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-		// TODO Auto-generated method stub
+		
 		request.setCharacterEncoding("UTF-8");
 		
 		PlaceDAO pDao = PlaceDAO.getInstance();
