@@ -193,7 +193,7 @@ body > #wrap{
 			
 		</div> <!-- mainnav -->
 		<div id="content">
-			
+			<h1>관리자 페이지 입니다.</h1>
 		</div>
 	</div> <!-- container -->
 </div> <!-- wrap -->

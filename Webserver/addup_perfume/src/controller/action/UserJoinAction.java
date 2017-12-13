@@ -1,6 +1,8 @@
 package controller.action;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -57,6 +59,9 @@ public class UserJoinAction extends HttpServlet {
 			e.printStackTrace();
 		}
 		System.out.println(result);
+		
+		RequestDispatcher dispatcher = request.getRequestDispatcher("user_login.jsp");
+		dispatcher.forward(request, response);
 	}
 
 }

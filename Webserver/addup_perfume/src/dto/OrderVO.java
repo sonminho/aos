@@ -8,8 +8,15 @@ public class OrderVO {
 	private int order_product_number;
 	private int order_price;
 	private String order_product_name;
+	private String order_id;
 	
 	
+	public String getOrder_id() {
+		return order_id;
+	}
+	public void setOrder_id(String order_id) {
+		this.order_id = order_id;
+	}
 	public String getOrder_product_name() {
 		return order_product_name;
 	}

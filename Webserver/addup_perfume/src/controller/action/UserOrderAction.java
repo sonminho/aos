@@ -30,6 +30,14 @@ public class UserOrderAction implements Action{
 		String user_id = (String) session.getAttribute("uLogin");
 		String product_number = request.getParameter("product_number");
 		
+		
+		if(user_id == null) {
+			RequestDispatcher dispatcher = request.getRequestDispatcher("user_login.jsp");
+			dispatcher.forward(request, response);
+			
+			return;
+		}
+		
 		try {
 			uVo = uDao.getUserInfo(user_id);
 			pVo = pDao.getProductByNumber((int)Integer.parseInt(product_number));

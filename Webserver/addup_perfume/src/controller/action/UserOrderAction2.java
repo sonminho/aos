@@ -77,6 +77,7 @@ public class UserOrderAction2 extends HttpServlet {
 			oVo.setOrder_product_number(pVo.getProductNumber());
 			oVo.setOrder_price(pVo.getProductPrice());
 			oVo.setOrder_product_name(pVo.getProductName());
+			oVo.setOrder_id(user_id);
 			
 			result = oDao.insertOrder(oVo);
 		} catch(Exception e) {

@@ -1,0 +1,40 @@
+package controller.action;
+
+import java.io.IOException;
+import java.util.ArrayList;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import dao.OrderDAO;
+import dto.OrderVO;
+
+public class UserOrderListAction implements Action {
+
+	@Override
+	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("utf-8");
+		
+		String user_id = (String)request.getSession().getAttribute("uLogin");
+		
+		OrderDAO oDao = OrderDAO.getInstance();
+		
+		ArrayList<OrderVO> list = null;
+		
+		System.out.println("사용자 아이디 " + user_id);
+		try {
+			list = oDao.getUserOrderList(user_id);
+			
+			request.setAttribute("order_list", list);
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		RequestDispatcher dispatcher = request.getRequestDispatcher("user_order_list");
+		dispatcher.forward(request, response);
+		
+	}
+
+}

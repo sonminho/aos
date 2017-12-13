@@ -169,10 +169,6 @@ body > #wrap{
 		<h1 class="logo"><a href="index.jsp"><img src="img/logo.png"/></a></h1>	
 		<dl class="topnav">
 			<dd><a href="user_login.jsp">login</a></dd>
-			<dd><a href="user_join.jsp">join us</a></dd>
-			<dd><a href="#">my page</a></dd>
-			<dd><a href="#">cart</a></dd>
-			<dd><a href="#">order</a></dd>
 			<dd><a href="manager_login.jsp">manager</a></dd>
 		</dl>
 	</div> <!-- header -->

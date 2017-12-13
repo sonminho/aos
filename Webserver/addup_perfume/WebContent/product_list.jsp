@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="UTF-8"%>
 <%@ page import="java.util.*, dao.ProductDAO, dto.ProductVO" %>    
+<%
+	String user_id = (String)request.getSession().getAttribute("uLogin");
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -167,12 +170,23 @@ body > #wrap{
 	<div id="header">
 		<h1 class="logo"><a href="index.jsp"><img src="img/logo.png"/></a></h1>	
 		<dl class="topnav">
-			<dd><a href="user_login.jsp">login</a></dd>
-			<dd><a href="ControllerServlet?command=logout">log out</a></dd>
-			<dd><a href="#">my page</a></dd>
-			<dd><a href="#">cart</a></dd>
-			<dd><a href="#">order</a></dd>
-			<dd><a href="manager_login.jsp">manager</a></dd>
+			<dd><a href="user_login.jsp">
+			<%
+				if(user_id == null) {
+			%>		login
+			<%
+				} else {
+			%>
+					<%= user_id %>님 로그인
+			<%
+				}
+			%>
+			</a></dd>
+			<dd><a href="ControllerServlet?command=logout"><% if(user_id != null) %>log out</a></dd>
+			<dd><a href="#"><% if(user_id != null) %>my page</a></dd>
+			<dd><a href="#"><% if(user_id != null) %>cart</a></dd>
+			<dd><a href="ControllerServlet?command=user_order_list"><% if(user_id != null) %>order</a></dd>
+			<dd><a href="manager_login.jsp"><% if(user_id==null) %>manager</a></dd>
 		</dl>
 	</div> <!-- header -->
 	
