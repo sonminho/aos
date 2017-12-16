@@ -336,11 +336,22 @@ $(function() {
 <div class="main_div">
 <table class="top_nav">
    <tr>
-      <td><a href="login.jsp">로그인</a></td>
-      <td><a href="join_main.jsp">회원가입</a></td>
-      <td>마이페이지</td>
-      <td>즐겨찾기</td>
-      <td><a href="ControllerServlet?command=user_logout">로그아웃</a></td>
+      <td><a href="login.jsp">
+      <%
+      		if((UserVO)session.getAttribute("uLogin") == null) {
+      %>	로그인     
+      <%	
+      		} else {
+      %>
+      			<%= uVo.getUser_id() %>님 로그인
+      <%
+      		}
+      %>
+      </a></td>
+      <td><a href="join_main.jsp"><%if((UserVO)session.getAttribute("uLogin") == null) {%>	회원가입   <%}%></a></td>
+      <td><%if((UserVO)session.getAttribute("uLogin") != null) {%>마이페이지<%} %></td>
+      <td><a href="ControllerServlet?command=cart_list"><%if((UserVO)session.getAttribute("uLogin") != null) {%>즐겨찾기<%} %></a></td>
+      <td><a href="ControllerServlet?command=user_logout"><%if((UserVO)session.getAttribute("uLogin") != null) {%>로그아웃<%} %></a></td>
    </tr>
 </table><br>
 <form class="main_search">
